@@ -9,8 +9,13 @@ import { keys } from 'lodash-es'
 export class Route1Component {
   keys = keys
   bsSurname: string
+  curSurname: string
 
   bsSubmit() {
     console.log('bsSubmit', this.bsSurname)
+  }
+
+  curSubmit() {
+    console.log('curSubmit', this.curSurname)
   }
 }
