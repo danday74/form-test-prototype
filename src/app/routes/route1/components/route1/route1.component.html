@@ -1,1 +1,24 @@
-<p>route1 works!</p>
+<form (ngSubmit)="bsSubmit()" #bsForm="ngForm" class="validate" novalidate>
+
+  <div>
+    <label for="bsSurname" class="form-label">Surname</label>
+    <input id="bsSurname" class="form-control" required minlength="5" pattern="^[a-z]+$"
+           #surname="ngModel" name="surname" [(ngModel)]="bsSurname">
+
+    <div class="form-errors" [class.invisible]="surname.untouched || !surname.errors">
+      <span class="form-error" *ngIf="surname.errors?.required; else minlength">required</span>
+      <ng-template #minlength>
+        <span class="form-error" *ngIf="surname.errors?.minlength; else unknown">min length {{ surname.errors.minlength.requiredLength }} chars</span>
+      </ng-template>
+      <ng-template #unknown>
+        <span class="form-error" *ngIf="surname.errors; else none">{{ keys(surname.errors)[0] }} error</span>
+      </ng-template>
+      <ng-template #none>
+        <span class="form-error">no error</span>
+      </ng-template>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="bsForm.form.invalid">submit</button>
+
+</form>
