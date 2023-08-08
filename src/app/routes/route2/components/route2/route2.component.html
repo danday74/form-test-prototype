@@ -1,1 +1,19 @@
-<p>route2 works!</p>
+<form (ngSubmit)="submit()" #myForm="ngForm" class="x3ui-validate" novalidate>
+
+  <div>
+    <label for="surname" class="form-label">Surname</label>
+    <input id="surname" class="form-control" required minlength="5" pattern="^[a-z]+$"
+           #surname="ngModel" name="surname" [(ngModel)]="model.surname">
+
+    <div class="x3ui-form-errors" [class.invisible]="surname.untouched || !surname.errors">
+      <span *ngIf="surname.errors?.required; else minlength">required</span>
+      <ng-template #minlength>
+        <span *ngIf="surname.errors?.minlength; else unknown">{{ surname.errors.minlength.requiredLength }} chars min</span>
+      </ng-template>
+      <ng-template #unknown><span *ngIf="surname.errors; else none">{{ keys(surname.errors)[0] }} error</span></ng-template>
+      <ng-template #none><span>no error</span></ng-template>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="myForm.form.invalid">submit</button>
+</form>
