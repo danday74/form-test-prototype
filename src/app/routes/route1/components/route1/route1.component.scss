@@ -35,3 +35,27 @@ form.x3ui-validate {
     }
   }
 }
+
+:host-context(html.form-style-current) {
+  form.x3ui-validate {
+    .form-label {
+      color: pink;
+    }
+
+    .form-control {
+      background-color: pink;
+    }
+  }
+}
+
+:host-context(html.form-style-modern) {
+  form.x3ui-validate {
+    .form-label {
+      color: green;
+    }
+
+    .form-control {
+      background-color: green;
+    }
+  }
+}

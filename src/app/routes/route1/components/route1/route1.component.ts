@@ -9,13 +9,9 @@ import { keys } from 'lodash-es'
 export class Route1Component {
   keys = keys
 
-  model: { bsSurname: string, curSurname: string } = { bsSurname: null, curSurname: null }
+  model: { surname: string } = { surname: null }
 
-  bsSubmit() {
-    console.log('bsSubmit', this.model.bsSurname)
-  }
-
-  curSubmit() {
-    console.log('curSubmit', this.model.curSurname)
+  submit() {
+    console.log('submit', this.model.surname)
   }
 }
