@@ -13,9 +13,7 @@
       <ng-template #unknown><span *ngIf="bsSurname.errors; else none">{{ keys(bsSurname.errors)[0] }} error</span></ng-template>
       <ng-template #none><span>no error</span></ng-template>
     </div>
-
   </div>
 
   <button type="submit" class="btn btn-primary" [disabled]="bsForm.form.invalid">submit</button>
-
 </form>
