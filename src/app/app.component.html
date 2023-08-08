@@ -1,6 +1,11 @@
 <header>
-  <a routerLink="route1" routerLinkActive="active">Route 1</a>
-  <a routerLink="route2" routerLinkActive="active">Route 2</a>
+  <div>
+    <a routerLink="route1" routerLinkActive="active">Route 1</a>
+    <a routerLink="route2" routerLinkActive="active">Route 2</a>
+  </div>
+  <div>
+    <button (click)="toggleFormStyle()">{{ formStyle }}</button>
+  </div>
 </header>
 
 <main>
