@@ -3,7 +3,7 @@
   <div>
     <label for="bsSurname" class="form-label">Surname</label>
     <input id="bsSurname" class="form-control" required minlength="5" pattern="^[a-z]+$"
-           #bsSurname="ngModel" name="bsSurname" [(ngModel)]="bsSurname">
+           #bsSurname="ngModel" name="bsSurname" [(ngModel)]="model.bsSurname">
 
     <div class="x3ui-form-errors" [class.invisible]="bsSurname.untouched || !bsSurname.errors">
       <span *ngIf="bsSurname.errors?.required; else minlength">required</span>

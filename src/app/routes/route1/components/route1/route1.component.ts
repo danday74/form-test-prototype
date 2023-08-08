@@ -8,14 +8,17 @@ import { keys } from 'lodash-es'
 })
 export class Route1Component {
   keys = keys
-  bsSurname: string
-  curSurname: string
+
+  model: {
+    bsSurname: null,
+    curSurname: null
+  }
 
   bsSubmit() {
-    console.log('bsSubmit', this.bsSurname)
+    console.log('bsSubmit', this.model.bsSurname)
   }
 
   curSubmit() {
-    console.log('curSubmit', this.curSurname)
+    console.log('curSubmit', this.model.curSurname)
   }
 }
