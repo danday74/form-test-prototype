@@ -1,5 +1,6 @@
 import { Component } from '@angular/core'
 import { keys } from 'lodash-es'
+import { IModel } from '../../../../interfaces/i-model'
 
 @Component({
   selector: 'app-route2',
@@ -7,11 +8,11 @@ import { keys } from 'lodash-es'
   styleUrls: ['./route2.component.scss']
 })
 export class Route2Component {
-  keys = keys
+  readonly keys = keys
 
-  model: { surname: string } = { surname: null }
+  model: IModel = { surname: null }
 
   submit() {
-    console.log('submit', this.model.surname)
+    console.log('submit', this.model)
   }
 }
