@@ -16,6 +16,9 @@ header {
     padding: 5px 20px 7px;
     color: #FFF;
     text-decoration: none;
+    min-width: 135px;
+    display: inline-block;
+    text-align: center;
 
     &:hover {
       background-color: #111;
