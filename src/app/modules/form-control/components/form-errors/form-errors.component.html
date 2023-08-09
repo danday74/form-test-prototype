@@ -1,0 +1,17 @@
+<div class="x3ui-form-errors" [class.invisible]="!model || model.valid || model.untouched">
+  <span *ngIf="!model || model.valid; else errorExistsRef">no error</span> <!-- maintains spacing if there is no error but will never be visible -->
+  <ng-template #errorExistsRef>
+    <ng-container *appVar="keys(model.errors)[0] as key">
+      <ng-container *appVar="{ formError: formErrors[key], type: formErrors[key] | typeof } as err">
+        <span *ngIf="!err.formError; else showErrorRef">{{ key }} error</span>
+        <ng-template #showErrorRef>
+          <span *ngIf="err.type === 'string'; else errorObjectRef">{{ err.formError }}</span>
+          <ng-template #errorObjectRef>
+            <ng-container *ngTemplateOutlet="errorRef"></ng-container>
+          </ng-template>
+        </ng-template>
+      </ng-container>
+    </ng-container>
+  </ng-template>
+  <ng-template #errorRef></ng-template>
+</div>
