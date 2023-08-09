@@ -5,7 +5,7 @@
     <input id="surname" class="form-control" required minlength="5" pattern="^[a-z]+$"
            #surname="ngModel" name="surname" [(ngModel)]="model.surname">
 
-    <div class="x3ui-form-errors" [class.invisible]="surname.untouched || !surname.errors">
+    <div class="x3ui-form-errors" [class.invisible]="surname.valid || surname.untouched">
       <span *ngIf="surname.errors?.required; else minlength">required</span>
       <ng-template #minlength>
         <span *ngIf="surname.errors?.minlength; else unknown">{{ surname.errors.minlength.requiredLength }} chars min</span>
