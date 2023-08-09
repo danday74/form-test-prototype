@@ -7,7 +7,7 @@ import { keys } from 'lodash-es'
   styleUrls: ['./route1.component.scss']
 })
 export class Route1Component {
-  keys = keys
+  readonly keys = keys
 
   model: { surname: string } = { surname: null }
 

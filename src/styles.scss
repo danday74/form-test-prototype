@@ -1,9 +1,15 @@
-@import 'src/styles/thin-scrollbar.scss';
+@import 'src/styles/thin-scrollbar';
+@import 'src/styles/x3ui';
 
 body {
   overflow-y: scroll;
+  user-select: none;
 }
 
 * {
   box-sizing: border-box;
+}
+
+label {
+  cursor: pointer;
 }
