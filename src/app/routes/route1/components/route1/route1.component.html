@@ -11,7 +11,7 @@
         <span *ngIf="surname.errors?.minlength; else unknown">{{ surname.errors.minlength.requiredLength }} chars min</span>
       </ng-template>
       <ng-template #unknown><span *ngIf="surname.errors; else none">{{ keys(surname.errors)[0] }} error</span></ng-template>
-      <ng-template #none><span>no error</span></ng-template>
+      <ng-template #none><span>no error</span></ng-template> <!-- maintains spacing if there is no error but will never be visible -->
     </div>
   </div>
 
