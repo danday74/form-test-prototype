@@ -10,7 +10,7 @@ import { IModel } from '../../../../interfaces/i-model'
 export class Route2Component {
   readonly keys = keys
 
-  model: IModel = { surname: null }
+  model: IModel = { surname: '', car: '' }
 
   submit() {
     console.log('submit', this.model)
