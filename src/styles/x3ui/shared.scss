@@ -34,4 +34,9 @@ form.x3ui-form {
       background-size: calc(.75em + .375rem) calc(.75em + .375rem);
     }
   }
+
+  label:has(+input:required):after {
+    content: ' *';
+    color: red;
+  }
 }
