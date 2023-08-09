@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { InterpolatePipe } from './interpolate/interpolate.pipe'
+import { TypeofPipe } from './typeof/typeof.pipe'
 
 @NgModule({
   declarations: [
-    InterpolatePipe
+    TypeofPipe
   ],
   exports: [
-    InterpolatePipe
+    TypeofPipe
   ],
   imports: [
     CommonModule

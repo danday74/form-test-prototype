@@ -1,6 +1,8 @@
+import { IFormError } from './i-form-error'
+
 export interface IFormErrors {
   // add optional props as needed
-  required?: string
-  minlength?: string
-  pattern?: string
+  minlength?: IFormError | string
+  pattern?: IFormError | string
+  required?: IFormError | string
 }
