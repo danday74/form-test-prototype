@@ -1,0 +1,8 @@
+<!--suppress TypeScriptUnresolvedReference -->
+<ng-container *appVar="data.model?.errors?.minlength as minlength">
+  <span *ngIf="minlength">
+    <span *ngIf="data.label">{{ data.label | lowercase }} is </span>
+    <span>{{ minlength.actualLength }}/{{ minlength.requiredLength }} characters</span>
+  </span>
+  <span *ngIf="!minlength">{{ data.key }}</span>
+</ng-container>
