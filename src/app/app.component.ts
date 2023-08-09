@@ -21,20 +21,20 @@ export class AppComponent implements OnInit {
   toggleFormStyle() {
     const nextFormStyle: TFormStyle = getNextItemInArray(appConfig.formStyle.styles, this.formStyle)
     this.formStyle = nextFormStyle
-    this.storageService.setItem('form-style', nextFormStyle)
+    this.storageService.setItem(appConfig.formStyle.prefix, nextFormStyle)
     this.addFormStyleCssClassToHead()
   }
 
   private addFormStyleCssClassToHead() {
     const html: HTMLHtmlElement = document.getElementsByTagName('html')[0]
-    const prefix = 'form-style-'
+    const prefix = `${appConfig.formStyle.prefix}-`
     const classes: string[] = html.className.split(' ').filter((clazz: string) => !clazz.startsWith(prefix))
     html.className = classes.join(' ')
     html.classList.add(prefix + this.formStyle)
   }
 
   private getFormStyle(): TFormStyle {
-    let formStyle: TFormStyle = this.storageService.getItem('form-style', appConfig.formStyle.default)
+    let formStyle: TFormStyle = this.storageService.getItem(appConfig.formStyle.prefix, appConfig.formStyle.default)
     if (!appConfig.formStyle.styles.includes(formStyle)) formStyle = appConfig.formStyle.default
     return formStyle
   }

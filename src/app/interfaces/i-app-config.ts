@@ -4,5 +4,6 @@ export interface IAppConfig {
   formStyle: {
     styles: TFormStyle[]
     default: TFormStyle
+    prefix: string
   }
 }
