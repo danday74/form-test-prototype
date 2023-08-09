@@ -5,5 +5,13 @@
            [(ngModel)]="model.surname">
   </app-form-control>
 
+  <app-form-control label="Car">
+    <select class="form-select" name="car" required
+            [ngModel]="model.car" (ngModelChange)="carChange($event)">
+      <option value="">Choose a car</option>
+      <option *ngFor="let car of cars" [value]="car.value">{{ car.name }}</option>
+    </select>
+  </app-form-control>
+
   <button type="submit" class="btn btn-primary" [disabled]="myForm.form.invalid">submit</button>
 </form>
