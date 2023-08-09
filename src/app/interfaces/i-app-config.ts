@@ -1,4 +1,4 @@
-import { TFormStyle } from '../../types/t-form-style'
+import { TFormStyle } from '../types/t-form-style'
 
 export interface IAppConfig {
   formStyle: {

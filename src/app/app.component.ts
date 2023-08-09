@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { TFormStyle } from '../types/t-form-style'
+import { TFormStyle } from './types/t-form-style'
 import { StorageService } from './services/storage.service'
 import { appConfig } from './app-config'
 import { getNextItemInArray } from './utils/array-utils'

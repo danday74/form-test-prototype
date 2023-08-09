@@ -4,7 +4,7 @@
     <a routerLink="route2" routerLinkActive="active">Form Control</a>
   </div>
   <div>
-    <button (click)="toggleFormStyle()">{{ formStyle }}</button>
+    <button (click)="toggleFormStyle()">{{ formStyle | case: 'start' }}</button>
   </div>
 </header>
 
