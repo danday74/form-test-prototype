@@ -1,6 +1,20 @@
 @import 'src/styles/colors';
 
+form:not(.x3ui-validate) {
+  .x3ui-form-errors {
+    visibility: hidden;
+  }
+}
+
 form.x3ui-validate {
+  .x3ui-form-errors {
+    text-align: right;
+    font-size: 14px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    color: $failure;
+  }
+
   .form-control.ng-touched {
     &.ng-valid {
       border-color: $success;
