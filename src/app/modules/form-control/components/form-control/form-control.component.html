@@ -1,0 +1,19 @@
+<div #containerRef>
+
+  <ng-container *ngIf="label">
+    <label class="form-label" [for]="id">{{ label }}</label>
+  </ng-container>
+
+  <ng-content select="[input, select]"></ng-content>
+
+  <ng-container *ngIf="model">
+    <div class="x3ui-form-errors" [class.invisible]="model.untouched || !model.errors">
+      <ng-container *ngIf="model.errors">
+        <ng-container *appVar="keys(model.errors)[0] as error">
+          <span>{{ (formErrors[error] ? (formErrors[error] | interpolate: this) : error + ' error') | lowercase }}</span>
+        </ng-container>
+      </ng-container>
+      <span *ngIf="!model.errors">no error</span> <!-- maintains spacing if there is no error but will never be visible -->
+    </div>
+  </ng-container>
+</div>
