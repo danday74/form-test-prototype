@@ -1,4 +1,4 @@
-<form (ngSubmit)="submit()" #myForm="ngForm" class="x3ui-validate" novalidate>
+<form (ngSubmit)="submit()" #myForm="ngForm" class="x3ui-form" novalidate>
 
   <app-form-control label="Surname" [errors]="{ required: 'dont leave me empty' }">
     <input class="form-control" name="surname" required minlength="5" pattern="^[a-z]+$"
