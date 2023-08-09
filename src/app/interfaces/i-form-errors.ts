@@ -1,8 +1,8 @@
 import { IFormError } from './i-form-error'
 
-export interface IFormErrors {
+export interface IFormErrors extends Record<string, string | IFormError> {
   // add optional props as needed
-  minlength?: IFormError | string
-  pattern?: IFormError | string
-  required?: IFormError | string
+  minlength?: string | IFormError
+  pattern?: string | IFormError
+  required?: string | IFormError
 }

@@ -5,10 +5,10 @@ import { ErrorMinlengthComponent } from '../components/error-minlength/error-min
 export const defaultFormErrors: IFormErrors = {
   required: {
     component: ErrorRequiredComponent,
-    dataProp: ['label']
+    dataProps: ['label']
   },
   minlength: {
     component: ErrorMinlengthComponent,
-    dataProp: ['label', 'model']
+    dataProps: ['label', 'model']
   }
 }
