@@ -1,4 +1,8 @@
+@import 'mixins/square-corners-mixin';
+
 html.x3ui-modern {
+  @include squareCorners;
+
   form.x3ui-form {
     .form-label {
       color: cyan;

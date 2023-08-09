@@ -1,1 +1,5 @@
-html.x3ui-bootstrap-plus {}
+@import 'mixins/bootstrap-mixin';
+
+html.x3ui-bootstrap-plus {
+  @include bootstrap;
+}
