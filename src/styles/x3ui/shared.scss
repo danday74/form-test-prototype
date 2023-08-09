@@ -15,7 +15,7 @@ form.x3ui-form {
     color: $failure;
   }
 
-  .form-control.ng-touched {
+  .form-control.ng-touched, .form-select.ng-touched {
     &.ng-valid {
       border-color: $success;
       padding-right: calc(1.5em + .75rem);
@@ -35,7 +35,7 @@ form.x3ui-form {
     }
   }
 
-  label:has(+input:required):after {
+  label:has(+input:required):after, label:has(+select:required):after {
     content: ' *';
     color: red;
   }
