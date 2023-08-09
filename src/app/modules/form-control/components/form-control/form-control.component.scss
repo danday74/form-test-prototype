@@ -1,0 +1,17 @@
+@import 'src/styles/colors';
+
+:host-context(form:not(.x3ui-validate)) {
+  .x3ui-form-errors {
+    visibility: hidden;
+  }
+}
+
+:host-context(form.x3ui-validate) {
+  .x3ui-form-errors {
+    text-align: right;
+    font-size: 14px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    color: $failure;
+  }
+}
