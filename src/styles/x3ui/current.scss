@@ -1,1 +1,7 @@
-html.x3ui-current {}
+@import 'mixins/input-no-box-shadow';
+@import 'mixins/input-square-corners';
+
+html.x3ui-current {
+  @include inputNoBoxShadow;
+  @include inputSquareCorners;
+}
