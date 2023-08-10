@@ -1,4 +1,4 @@
-@mixin activeLabel {
+@mixin labelFocus {
   form.x3ui-form {
     label:has(+input:focus), label:has(+select:focus) {
       font-weight: bold;

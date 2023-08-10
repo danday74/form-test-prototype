@@ -1,0 +1,15 @@
+@import 'src/styles/colors';
+
+@mixin inputBorderStatus {
+  form.x3ui-form {
+    .form-control.ng-touched, .form-select.ng-touched {
+      &.ng-valid {
+        border-color: $success;
+      }
+
+      &.ng-invalid {
+        border-color: $failure;
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-@mixin requiredLabel {
+@mixin labelRequired {
   form.x3ui-form {
     label:has(+input:required):after, label:has(+select:required):after {
       content: ' *';
