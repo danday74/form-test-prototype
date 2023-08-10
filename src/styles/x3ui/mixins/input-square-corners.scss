@@ -1,0 +1,7 @@
+@mixin squareCorners {
+  form.x3ui-form {
+    .form-control, .form-select {
+      border-radius: 0;
+    }
+  }
+}

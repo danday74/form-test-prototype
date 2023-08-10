@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core'
 import { TFormStyle } from './types/t-form-style'
 import { StorageService } from './services/storage.service'
 import { appConfig } from './app-config'
-import { getNextItemInArray } from './utils/array-utils'
 
 @Component({
   selector: 'app-root',
@@ -11,6 +10,7 @@ import { getNextItemInArray } from './utils/array-utils'
 })
 export class AppComponent implements OnInit {
   formStyle: TFormStyle = this.getFormStyle()
+  formStyles: TFormStyle[] = appConfig.formStyle.styles
 
   constructor(private storageService: StorageService) {}
 
@@ -18,10 +18,9 @@ export class AppComponent implements OnInit {
     this.addFormStyleCssClassToHead()
   }
 
-  toggleFormStyle() {
-    const nextFormStyle: TFormStyle = getNextItemInArray(appConfig.formStyle.styles, this.formStyle)
-    this.formStyle = nextFormStyle
-    this.storageService.setItem(appConfig.formStyle.prefix, nextFormStyle)
+  changeFormStyle(formStyle: TFormStyle) {
+    this.formStyle = formStyle
+    this.storageService.setItem(appConfig.formStyle.prefix, formStyle)
     this.addFormStyleCssClassToHead()
   }
 
@@ -35,7 +34,7 @@ export class AppComponent implements OnInit {
 
   private getFormStyle(): TFormStyle {
     let formStyle: TFormStyle = this.storageService.getItem(appConfig.formStyle.prefix, appConfig.formStyle.default)
-    if (!appConfig.formStyle.styles.includes(formStyle)) formStyle = appConfig.formStyle.default
+    if (!this.formStyles.includes(formStyle)) formStyle = appConfig.formStyle.default
     return formStyle
   }
 }

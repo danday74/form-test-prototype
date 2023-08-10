@@ -3,8 +3,11 @@
     <a routerLink="route1" routerLinkActive="active">Custom Form</a>
     <a routerLink="route2" routerLinkActive="active">Form Control</a>
   </div>
-  <div>
-    <button (click)="toggleFormStyle()">{{ formStyle | case: 'start' }}</button>
+
+  <div class="btn-group">
+    <button *ngFor="let fs of formStyles" class="btn" [ngClass]="formStyle === fs ? 'btn-primary' : 'btn-outline-primary'" (click)="changeFormStyle(fs)">
+      <span>{{ fs | case: 'start' | replace: 'Bootstrap Plus': 'BS Plus' }}</span>
+    </button>
   </div>
 </header>
 

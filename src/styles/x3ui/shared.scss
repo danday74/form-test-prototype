@@ -14,19 +14,4 @@ form.x3ui-form {
     margin-bottom: 2px;
     color: $failure;
   }
-
-  .form-control.ng-touched, .form-select.ng-touched {
-    &.ng-valid {
-      border-color: $success;
-    }
-
-    &.ng-invalid {
-      border-color: $failure;
-    }
-  }
-
-  label:has(+input:required):after, label:has(+select:required):after {
-    content: ' *';
-    color: red;
-  }
 }
