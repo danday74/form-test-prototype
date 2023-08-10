@@ -1,1 +1,14 @@
-html.x3ui-modern {}
+@import 'src/styles/colors';
+@import 'mixins/input-background';
+@import 'mixins/input-border-status';
+@import 'mixins/input-square-corners';
+@import 'mixins/label-focus';
+@import 'mixins/label-required';
+
+html.x3ui-modern {
+  @include inputBackground($lightBgBlue);
+  @include inputBorderStatus;
+  @include inputSquareCorners;
+  @include labelFocus;
+  @include labelRequired;
+}
