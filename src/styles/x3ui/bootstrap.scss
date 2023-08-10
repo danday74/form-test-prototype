@@ -1,1 +1,9 @@
-html.x3ui-bootstrap {}
+@import 'mixins/input-background';
+@import 'mixins/input-border-status';
+@import 'mixins/label-required';
+
+html.x3ui-bootstrap {
+  @include inputBackground;
+  @include inputBorderStatus;
+  @include labelRequired;
+}

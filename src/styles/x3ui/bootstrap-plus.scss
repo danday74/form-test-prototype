@@ -1,1 +1,6 @@
-html.x3ui-bootstrap-plus {}
+@import 'mixins/input-image-status';
+
+html.x3ui-bootstrap-plus {
+  @extend .x3ui-bootstrap;
+  @include inputImageStatus;
+}
