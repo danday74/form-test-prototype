@@ -9,8 +9,8 @@ import { appConfig } from './app-config'
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  readonly formStyles: TFormStyle[] = appConfig.formStyle.styles
   formStyle: TFormStyle = this.getFormStyle()
-  formStyles: TFormStyle[] = appConfig.formStyle.styles
 
   constructor(private storageService: StorageService) {}
 
