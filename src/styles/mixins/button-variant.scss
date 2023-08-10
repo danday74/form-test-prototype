@@ -2,6 +2,8 @@
 @import 'bootstrap/scss/_variables';
 @import 'bootstrap/scss/mixins/_buttons';
 
+// https://getbootstrap.com/docs/5.3/components/buttons/#sass-mixins
+
 @mixin buttonVariant(
   $background,
   $border,
