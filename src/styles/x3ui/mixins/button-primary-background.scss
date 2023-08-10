@@ -2,8 +2,8 @@
 @import 'src/styles/mixins/button-variant';
 
 @mixin buttonPrimaryBackground($color: $reedPiccadilyBlue) {
-  .x3ui-form {
-    .btn-primary {
+  form.x3ui-form {
+    button.btn-primary {
       @include buttonVariant($color, darken($color, 10%));
     }
   }

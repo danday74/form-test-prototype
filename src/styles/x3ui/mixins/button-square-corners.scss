@@ -1,0 +1,7 @@
+@mixin buttonSquareCorners {
+  form.x3ui-form {
+    button.btn {
+      border-radius: 0;
+    }
+  }
+}
