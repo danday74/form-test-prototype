@@ -1,4 +1,6 @@
 @import 'src/styles/colors';
+@import 'mixins/button-primary-background';
+@import 'mixins/button-square-corners';
 @import 'mixins/input-background';
 @import 'mixins/input-border-status';
 @import 'mixins/input-square-corners';
@@ -6,6 +8,8 @@
 @import 'mixins/label-required';
 
 html.x3ui-modern {
+  @include buttonPrimaryBackground;
+  @include buttonSquareCorners;
   @include inputBackground($lightBgBlue);
   @include inputBorderStatus;
   @include inputSquareCorners;
