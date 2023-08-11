@@ -1,17 +1,20 @@
-import { AfterViewInit, Component, ContentChild, ElementRef, Input, ViewChild } from '@angular/core'
+import { AfterViewInit, Component, ContentChild, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core'
 import { NgModel } from '@angular/forms'
 import { v4 } from 'uuid'
 import { IFormErrors } from '../../../../interfaces/i-form-errors'
+import { fixUnits } from '../../../../utils/string-utils'
 
 @Component({
   selector: 'app-form-control',
   templateUrl: './form-control.component.html',
   styleUrls: ['./form-control.component.scss']
 })
-export class FormControlComponent implements AfterViewInit {
+export class FormControlComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() label: string
   @Input() errors: IFormErrors = {}
   @Input() inline = false
+  @Input() labelWidth: string = null
+  @Input() labelMaxWidth: string = null
 
   @ContentChild(NgModel) model: NgModel
   @ViewChild('containerRef') containerRef: ElementRef<HTMLDivElement>
@@ -20,11 +23,20 @@ export class FormControlComponent implements AfterViewInit {
 
   private formControl: HTMLInputElement | HTMLSelectElement
 
+  ngOnInit() {
+    this.fixUnits()
+  }
+
   ngAfterViewInit() {
     const children: HTMLCollection = this.containerRef.nativeElement.children
     this.setFormControl(children)
     this.checkProjectedContent(children)
     this.setId()
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.labelWidth && !changes.labelWidth.firstChange) this.fixUnits()
+    if (changes.labelMaxWidth && !changes.labelMaxWidth.firstChange) this.fixUnits()
   }
 
   private setFormControl(children: HTMLCollection) {
@@ -44,5 +56,10 @@ export class FormControlComponent implements AfterViewInit {
       this.id = this.formControl.id || v4()
       this.formControl.id = this.id
     })
+  }
+
+  private fixUnits() {
+    this.labelWidth = fixUnits(this.labelWidth)
+    this.labelMaxWidth = fixUnits(this.labelMaxWidth)
   }
 }
