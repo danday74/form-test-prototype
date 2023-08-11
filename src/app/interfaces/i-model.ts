@@ -1,5 +1,5 @@
 export interface IModel {
-  username: string
+  age: number
   surname: string
   car: string
 }
