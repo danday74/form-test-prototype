@@ -16,11 +16,9 @@
     </select>
 
     <div class="x3ui-form-errors" [class.invisible]="car.valid || car.untouched">
-      <span *ngIf="car.errors; else none">{{ keys(car.errors)[0] }}</span>
+      <span *ngIf="car.errors">{{ keys(car.errors)[0] }}</span>
     </div>
   </div>
 
   <button type="submit" class="btn btn-primary" [disabled]="myForm.form.invalid">submit</button>
 </form>
-
-<ng-template #none><span>no error</span></ng-template> <!-- maintains spacing if there is no error but will never be visible -->

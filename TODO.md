@@ -6,8 +6,6 @@ inline forms / making form-control inline:
 
 checkboxes
 
-#none ref seems a bit superfluous - min-height instead? diff solution?
-
 different form-control - e.g. [floating labels](https://getbootstrap.com/docs/5.0/forms/floating-labels)
 
 instant errors (pattern) v non instant errors (required minlength)
