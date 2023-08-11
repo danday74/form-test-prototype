@@ -3,7 +3,9 @@
 @import 'mixins/label-required';
 
 html.x3ui-bootstrap {
-  @include inputBackground;
-  @include inputBorderStatus;
-  @include labelRequired;
+  form.x3ui-form {
+    @include inputBackground;
+    @include inputBorderStatus;
+    @include labelRequired;
+  }
 }

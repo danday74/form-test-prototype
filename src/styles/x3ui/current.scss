@@ -3,7 +3,9 @@
 @import 'mixins/input-square-corners';
 
 html.x3ui-current {
-  @include buttonSquareCorners;
-  @include inputNoBoxShadow;
-  @include inputSquareCorners;
+  form.x3ui-form {
+    @include buttonSquareCorners;
+    @include inputNoBoxShadow;
+    @include inputSquareCorners;
+  }
 }

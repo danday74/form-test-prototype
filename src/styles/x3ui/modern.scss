@@ -8,11 +8,13 @@
 @import 'mixins/label-required';
 
 html.x3ui-modern {
-  @include buttonPrimaryBackground;
-  @include buttonSquareCorners;
-  @include inputBackground($lightBgBlue);
-  @include inputBorderStatus;
-  @include inputSquareCorners;
-  @include labelFocus;
-  @include labelRequired;
+  form.x3ui-form {
+    @include buttonPrimaryBackground;
+    @include buttonSquareCorners;
+    @include inputBackground($lightBgBlue);
+    @include inputBorderStatus;
+    @include inputSquareCorners;
+    @include labelFocus;
+    @include labelRequired;
+  }
 }
