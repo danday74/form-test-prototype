@@ -9,7 +9,7 @@
 
   <div>
     <label for="surname" class="form-label">Surname</label>
-    <input id="surname" class="form-control" required pattern="^[a-z]+$" minlength="5"
+    <input id="surname" class="form-control" required pattern="^[a-z]*$" minlength="5"
            #surname="ngModel" name="surname" [(ngModel)]="model.surname">
     <app-form-errors label="Surname" [model]="surname" [errors]="{ pattern: 'lowercase letters only' }"></app-form-errors>
   </div>

@@ -6,7 +6,7 @@
   </app-form-control>
 
   <app-form-control label="Surname" [errors]="{ required: 'dont leave me empty' }">
-    <input class="form-control" name="surname" required pattern="^[a-z]+$" minlength="5"
+    <input class="form-control" name="surname" required pattern="^[a-z]*$" minlength="5"
            [(ngModel)]="model.surname">
   </app-form-control>
 
