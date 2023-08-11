@@ -6,18 +6,12 @@ inline forms / making form-control inline:
 
 checkboxes
 
-#none
+#none ref seems a bit superfluous - min-height instead? diff solution?
 
-different form-control - e.g. floating labels
+different form-control - e.g. [floating labels](https://getbootstrap.com/docs/5.0/forms/floating-labels)
 
 rename form-control to match css class
 
 css files have .x3ui-form on all of them - fix it
 
-## nice to haves:
-
-#none ref seems a bit superfluous - min-height instead? diff solution?
-
-[floating labels](https://getbootstrap.com/docs/5.0/forms/floating-labels)
-
-
+instant errors (pattern) v non instant errors (required minlength)
