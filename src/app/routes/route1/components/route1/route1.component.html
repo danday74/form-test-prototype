@@ -4,14 +4,7 @@
     <label for="surname" class="form-label">Surname</label>
     <input id="surname" class="form-control" required minlength="5" pattern="^[a-z]+$"
            #surname="ngModel" name="surname" [(ngModel)]="model.surname">
-
-    <div class="x3ui-form-errors" [class.invisible]="surname.valid || surname.untouched">
-      <span *ngIf="surname.errors?.required; else minlength">required</span>
-      <ng-template #minlength>
-        <span *ngIf="surname.errors?.minlength; else unknown">{{ surname.errors.minlength.requiredLength }} chars min</span>
-      </ng-template>
-      <ng-template #unknown><span *ngIf="surname.errors; else none">{{ keys(surname.errors)[0] }} error</span></ng-template>
-    </div>
+    <app-form-errors label="Surname" [model]="surname" [errors]="{ pattern: 'lowercase letters only' }"></app-form-errors>
   </div>
 
   <div>

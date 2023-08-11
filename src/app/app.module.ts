@@ -9,8 +9,8 @@ import { PipesModule } from './pipes/pipes.module'
     AppComponent
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
+    BrowserModule,
     PipesModule
   ],
   providers: [],

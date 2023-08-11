@@ -1,26 +1,18 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { FormControlComponent } from './components/form-control/form-control.component'
-import { DirectivesModule } from '../../directives/directives.module'
-import { PipesModule } from '../../pipes/pipes.module'
-import { ErrorRequiredComponent } from './components/error-required/error-required.component'
-import { ErrorMinlengthComponent } from './components/error-minlength/error-minlength.component'
-import { FormErrorsComponent } from './components/form-errors/form-errors.component'
+import { FormErrorsModule } from '../form-errors/form-errors.module'
 
 @NgModule({
   declarations: [
-    FormControlComponent,
-    ErrorRequiredComponent,
-    ErrorMinlengthComponent,
-    FormErrorsComponent
+    FormControlComponent
   ],
   exports: [
     FormControlComponent
   ],
   imports: [
     CommonModule,
-    DirectivesModule,
-    PipesModule
+    FormErrorsModule
   ]
 })
 export class FormControlModule {}

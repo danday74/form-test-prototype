@@ -6,14 +6,14 @@ import { ReplacePipe } from './replace/replace.pipe'
 
 @NgModule({
   declarations: [
-    TypeofPipe,
     CasePipe,
-    ReplacePipe
+    ReplacePipe,
+    TypeofPipe
   ],
   exports: [
-    TypeofPipe,
     CasePipe,
-    ReplacePipe
+    ReplacePipe,
+    TypeofPipe
   ],
   imports: [
     CommonModule
