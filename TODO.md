@@ -1,6 +1,8 @@
 ## implement now:
 
-inline forms / making form-control inline
+inline forms / making form-control inline:
+  making all labels same width v making label take up min space
+  and control takes up rest of space
 
 checkboxes
 
