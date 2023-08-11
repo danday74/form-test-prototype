@@ -1,7 +1,5 @@
 @mixin inputBackground($color: #eee) {
-  form.x3ui-form {
-    .form-control, .form-select {
-      background-color: $color;
-    }
+  .form-control, .form-select {
+    background-color: $color;
   }
 }

@@ -1,7 +1,5 @@
 @mixin inputNoBoxShadow {
-  form.x3ui-form {
-    .form-control, .form-select {
-      box-shadow: none;
-    }
+  .form-control, .form-select {
+    box-shadow: none;
   }
 }
