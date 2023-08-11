@@ -11,6 +11,7 @@ import { IFormErrors } from '../../../../interfaces/i-form-errors'
 export class FormControlComponent implements AfterViewInit {
   @Input() label: string
   @Input() errors: IFormErrors = {}
+  @Input() inline = false
 
   @ContentChild(NgModel) model: NgModel
   @ViewChild('containerRef') containerRef: ElementRef<HTMLDivElement>

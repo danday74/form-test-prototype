@@ -16,3 +16,20 @@ form.x3ui-form {
     min-height: 1lh;
   }
 }
+
+form.x3ui-form {
+  .x3ui-form-control-group-inline {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 15px;
+
+    label {
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+
+    app-form-errors {
+      grid-column: 1 / 3;
+    }
+  }
+}
