@@ -1,5 +1,10 @@
 <form (ngSubmit)="submit()" #myForm="ngForm" class="x3ui-form" novalidate>
 
+  <app-form-control label="Username" [inline]="true">
+    <input class="form-control" name="username" required minlength="5" pattern="^[a-z]+$"
+           [(ngModel)]="model.username">
+  </app-form-control>
+
   <app-form-control label="Surname" [errors]="{ required: 'dont leave me empty' }">
     <input class="form-control" name="surname" required minlength="5" pattern="^[a-z]+$"
            [(ngModel)]="model.surname">
