@@ -1,5 +1,5 @@
 @mixin labelFocus {
-  label:has(+input:focus), label:has(+select:focus) {
+  .form-label:has(+.form-control:focus), .form-label:has(+.form-select:focus), .form-label.focus {
     font-weight: bold;
   }
 }

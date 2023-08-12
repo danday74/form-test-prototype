@@ -1,5 +1,5 @@
 @mixin labelRequired {
-  label:has(+input:required):after, label:has(+select:required):after, label.required:after {
+  .form-label:has(+.form-control:required):after, .form-label:has(+.form-select:required):after, .form-label.required:after {
     content: ' *';
     color: red;
     font-weight: normal;
