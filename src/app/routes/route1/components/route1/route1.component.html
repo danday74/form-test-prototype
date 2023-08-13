@@ -1,21 +1,21 @@
 <form (ngSubmit)="submit()" #myForm="ngForm" class="x3ui-form" novalidate>
 
   <div class="x3ui-form-control-group-inline">
-    <label for="age" class="form-label">Age</label>
+    <label for="age" class="form-label" title="Age">Age</label>
     <input type="number" id="age" class="form-control" required pattern="^\d*$" min="18" max="120"
            #age="ngModel" name="age" [(ngModel)]="model.age">
     <app-form-errors label="Age" [model]="age"></app-form-errors>
   </div>
 
   <div>
-    <label for="surname" class="form-label">Surname</label>
+    <label for="surname" class="form-label" title="Surname">Surname</label>
     <input id="surname" class="form-control" required pattern="^[a-z]*$" minlength="5"
            #surname="ngModel" name="surname" [(ngModel)]="model.surname">
     <app-form-errors label="Surname" [model]="surname" [errors]="{ pattern: 'lowercase letters only' }"></app-form-errors>
   </div>
 
   <div>
-    <label for="car" class="form-label">Car</label>
+    <label for="car" class="form-label" title="Car">Car</label>
     <select id="car" class="form-select" required
             #car="ngModel" name="car" [(ngModel)]="model.car">
       <option value="">Choose a car</option>
