@@ -10,4 +10,8 @@
       border-color: $failure;
     }
   }
+
+  .form-control:has(+app-form-errors > .x3ui-form-errors.instant-error) {
+    border-color: $failure;
+  }
 }
