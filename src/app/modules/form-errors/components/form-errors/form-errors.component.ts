@@ -27,6 +27,7 @@ import { DestroyerComponent } from '../../../app-core/components/destroyer.compo
 })
 export class FormErrorsComponent extends DestroyerComponent implements OnInit, AfterViewInit, OnChanges {
   readonly keys = keys
+  readonly instantErrorKeys: string[] = ['pattern', 'max']
 
   @Input() label: string
   @Input() model: NgModel
