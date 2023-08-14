@@ -13,3 +13,7 @@ body {
 .form-label[for], .form-check-label[for] {
   cursor: pointer;
 }
+
+.form-check-label {
+  margin-left: 1px;
+}
