@@ -16,6 +16,10 @@ form.x3ui-form {
     min-height: 1lh;
   }
 
+  .form-check-input.ng-invalid.ng-touched + .form-check-label {
+    color: $failure;
+  }
+
   .x3ui-form-control-group-inline {
     display: grid;
     grid-template-columns: auto 1fr;

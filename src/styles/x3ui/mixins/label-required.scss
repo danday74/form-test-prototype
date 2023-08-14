@@ -4,4 +4,10 @@
     color: red;
     font-weight: normal;
   }
+
+  .form-check-input:required + .form-check-label:after {
+    content: ' *';
+    color: red;
+    font-weight: normal;
+  }
 }
