@@ -1,0 +1,11 @@
+@import 'src/styles/colors';
+
+@mixin checkboxColors(
+  $bgColor: $reedPiccadilyBlue,
+  $borderColor: darken($bgColor, 12%)
+) {
+  .form-check-input:checked {
+    background-color: $bgColor;
+    border-color: $borderColor;
+  }
+}

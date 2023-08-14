@@ -1,6 +1,7 @@
 @import 'src/styles/colors';
 @import 'mixins/button-primary-background';
 @import 'mixins/button-square-corners';
+@import 'mixins/checkbox-colors';
 @import 'mixins/input-background';
 @import 'mixins/input-border-status';
 @import 'mixins/input-square-corners';
@@ -11,6 +12,7 @@ html.x3ui-modern {
   form.x3ui-form {
     @include buttonPrimaryBackground;
     @include buttonSquareCorners;
+    @include checkboxColors;
     @include inputBackground($lightBgBlue);
     @include inputBorderStatus;
     @include inputSquareCorners;
