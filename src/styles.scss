@@ -10,10 +10,15 @@ body {
   box-sizing: border-box;
 }
 
+// only very commonly used high level rules should be placed here
+// everything else should be imported
+
 .form-label[for], .form-check-label[for] {
   cursor: pointer;
 }
 
-.form-check-label {
-  margin-left: 1px;
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

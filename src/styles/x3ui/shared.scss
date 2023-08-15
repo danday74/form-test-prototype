@@ -20,6 +20,12 @@ form.x3ui-form {
     color: $failure;
   }
 
+  .form-check-label {
+    @extend .ellipsis;
+    display: block;
+    margin-left: 1px;
+  }
+
   .x3ui-form-control-group-inline {
     display: grid;
     grid-template-columns: auto 1fr;
