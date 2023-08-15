@@ -1,13 +1,16 @@
 @mixin labelRequired {
-  .form-label:has(+.form-control:required):after, .form-label:has(+.form-select:required):after, .form-label.required:after {
-    content: ' *';
-    color: red;
-    font-weight: normal;
+
+  // all of these used :after but since .required-star has :after its no longer needed
+
+  .form-label:has(+.form-control:required), .form-label:has(+.form-select:required), .form-label.required {
+    @extend .required-star;
   }
 
-  .form-check-input:required + .form-check-label:after {
-    content: ' *';
-    color: red;
-    font-weight: normal;
+  .form-check-input[type=checkbox]:required + .form-check-label, .form-check-label.required {
+    @extend .required-star;
+  }
+
+  .radio-title:has(+.form-check > .form-check-input[type=radio]:required), .radio-title.required {
+    @extend .required-star;
   }
 }

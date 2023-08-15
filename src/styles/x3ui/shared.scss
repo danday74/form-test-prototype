@@ -26,6 +26,12 @@ form.x3ui-form {
     margin-left: 1px;
   }
 
+  .radio-title {
+    margin: 0 0 5px;
+    font-weight: normal;
+    font-style: italic;
+  }
+
   .x3ui-form-control-group-inline {
     display: grid;
     grid-template-columns: auto 1fr;
