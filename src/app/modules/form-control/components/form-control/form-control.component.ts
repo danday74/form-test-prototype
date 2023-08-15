@@ -41,13 +41,18 @@ export class FormControlComponent implements OnInit, AfterViewInit, OnChanges {
 
   private setFormControl(children: HTMLCollection) {
     const els: Element[] = Array.from(children)
-    this.formControl = els.find((el: Element) => el.tagName === 'INPUT' || el.tagName === 'SELECT') as HTMLInputElement | HTMLSelectElement
+    this.formControl = els.find((el: Element) => {
+      const formControl: HTMLInputElement | HTMLSelectElement = el as HTMLInputElement | HTMLSelectElement
+      return formControl.tagName === 'SELECT' || (formControl.tagName === 'INPUT' && formControl.type !== 'checkbox' && formControl.type !== 'radio')
+    }) as HTMLInputElement | HTMLSelectElement
   }
 
   private checkProjectedContent(children: HTMLCollection) {
     const expectedChildrenCount: number = this.label ? 3 : 2
     if (children.length !== expectedChildrenCount || !this.model || !this.formControl) {
-      throw Error('only one <select> or one <input> element should be content projected to <app-form-control> and it must have [(ngModel)] or an equivalent')
+      let msg = 'only one <input> or one <select> element should be content projected to <app-form-control>'
+      msg += ' and it must have [(ngModel)] or an equivalent - checkboxes and radios should use <app-form-check> instead'
+      throw Error(msg)
     }
   }
 

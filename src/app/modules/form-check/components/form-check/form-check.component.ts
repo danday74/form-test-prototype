@@ -17,34 +17,36 @@ export class FormCheckComponent implements AfterViewInit {
 
   id: string
 
-  private formControl: HTMLInputElement
+  private formCheck: HTMLInputElement
 
   ngAfterViewInit() {
     const children: HTMLCollection = this.containerRef.nativeElement.children
-    this.setFormControl(children)
+    this.setFormCheck(children)
     this.checkProjectedContent(children)
     this.setId()
   }
 
-  private setFormControl(children: HTMLCollection) {
+  private setFormCheck(children: HTMLCollection) {
     const els: Element[] = Array.from(children)
-    this.formControl = els.find((el: Element) => {
-      const inputCheck: HTMLInputElement = el as HTMLInputElement
-      return inputCheck.tagName === 'INPUT' && (inputCheck.type === 'checkbox' || inputCheck.type === 'radio')
+    this.formCheck = els.find((el: Element) => {
+      const formCheck: HTMLInputElement = el as HTMLInputElement
+      return formCheck.tagName === 'INPUT' && (formCheck.type === 'checkbox' || formCheck.type === 'radio')
     }) as HTMLInputElement
   }
 
   private checkProjectedContent(children: HTMLCollection) {
     const expectedChildrenCount: number = this.label ? 2 : 1
-    if (children.length !== expectedChildrenCount || !this.model || !this.formControl) {
-      throw Error('only one <input type="checkbox"> or one <input type="radio"> element should be content projected to <app-form-check> and it must have [(ngModel)] or an equivalent')
+    if (children.length !== expectedChildrenCount || !this.model || !this.formCheck) {
+      let msg = 'only one <input type="checkbox"> or one <input type="radio"> element should be content projected to <app-form-check>'
+      msg += ' and it must have [(ngModel)] or an equivalent'
+      throw Error(msg)
     }
   }
 
   private setId() {
     setTimeout(() => {
-      this.id = this.formControl.id || v4()
-      this.formControl.id = this.id
+      this.id = this.formCheck.id || v4()
+      this.formCheck.id = this.id
     })
   }
 }
