@@ -1,0 +1,6 @@
+<div #containerRef class="form-check" [ngClass]="{ 'form-check-inline': inline, 'form-switch': switch }">
+  <ng-content select="[input[type=checkbox], input[type=radio]]"></ng-content>
+  <ng-container *ngIf="label">
+    <label [for]="id" class="form-check-label" [title]="label">{{ label }}</label>
+  </ng-container>
+</div>

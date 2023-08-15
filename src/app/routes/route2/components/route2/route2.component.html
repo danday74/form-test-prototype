@@ -18,5 +18,33 @@
     </select>
   </app-form-control>
 
+  <app-form-check label="Agree One?">
+    <input type="checkbox" class="form-check-input" name="agree1" required [(ngModel)]="model.agree1">
+  </app-form-check>
+  <app-form-check label="Agree Two?">
+    <input type="checkbox" class="form-check-input" name="agree2" required [(ngModel)]="model.agree2">
+  </app-form-check>
+
+  <br>
+
+  <app-form-check label="Accept One?" [switch]="true">
+    <input type="checkbox" class="form-check-input" name="accept1" required [(ngModel)]="model.accept1">
+  </app-form-check>
+  <app-form-check label="Accept Two?" [switch]="true">
+    <input type="checkbox" class="form-check-input" name="accept2" required [(ngModel)]="model.accept2">
+  </app-form-check>
+
+  <br>
+
+  <h6 class="radio-title">Choose a Pet</h6>
+  <app-form-check label="Cat">
+    <input type="radio" class="form-check-input" name="pet" required value="cat" [(ngModel)]="model.pet">
+  </app-form-check>
+  <app-form-check label="Dog">
+    <input type="radio" class="form-check-input" name="pet" required value="dog" [(ngModel)]="model.pet">
+  </app-form-check>
+
+  <br>
+
   <button type="submit" class="btn btn-primary" [disabled]="myForm.form.invalid">submit</button>
 </form>
