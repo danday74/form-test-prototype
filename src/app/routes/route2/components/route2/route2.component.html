@@ -1,5 +1,8 @@
 <form (ngSubmit)="submit()" #myForm="ngForm" class="x3ui-form" novalidate>
 
+  <!-- Adding class="xxxxx" is optional since this is added by <app-form-control> and <app-form-check> -->
+  <!-- but adding this may help to reduce jump on page load for busy pages -->
+
   <app-form-control label="Age" [inline]="true">
     <input type="number" class="form-control" name="age" required pattern="^\d*$" min="18" max="120"
            [(ngModel)]="model.age">
