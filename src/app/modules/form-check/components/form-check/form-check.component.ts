@@ -32,6 +32,7 @@ export class FormCheckComponent implements AfterViewInit {
       const formCheck: HTMLInputElement = el as HTMLInputElement
       return formCheck.tagName === 'INPUT' && (formCheck.type === 'checkbox' || formCheck.type === 'radio')
     }) as HTMLInputElement
+    if (this.formCheck) this.formCheck.classList.add('form-check-input')
   }
 
   private checkProjectedContent(children: HTMLCollection) {

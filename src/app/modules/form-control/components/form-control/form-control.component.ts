@@ -45,6 +45,10 @@ export class FormControlComponent implements OnInit, AfterViewInit, OnChanges {
       const formControl: HTMLInputElement | HTMLSelectElement = el as HTMLInputElement | HTMLSelectElement
       return formControl.tagName === 'SELECT' || (formControl.tagName === 'INPUT' && formControl.type !== 'checkbox' && formControl.type !== 'radio')
     }) as HTMLInputElement | HTMLSelectElement
+    if (this.formControl) {
+      const formControlClass: string = this.formControl.tagName === 'INPUT' ? 'form-control' : 'form-select'
+      this.formControl.classList.add(formControlClass)
+    }
   }
 
   private checkProjectedContent(children: HTMLCollection) {
