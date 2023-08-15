@@ -13,7 +13,7 @@ export class Route2Component {
   readonly keys = keys
   readonly cars: ICar[] = cars
 
-  model: IModel = { age: null, surname: '', car: '', agree: false, pet: '' }
+  model: IModel = { age: null, surname: '', car: '', agree: false, accept: false, pet: '' }
 
   submit() {
     console.log('submit', this.model)

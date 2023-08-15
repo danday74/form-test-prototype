@@ -35,6 +35,15 @@
 
   <br>
 
+  <!-- only difference to a checkbox is the form-switch class -->
+  <div class="form-check form-switch">
+    <input type="checkbox" id="accept" class="form-check-input" required
+           name="accept" [(ngModel)]="model.accept">
+    <label for="accept" class="form-check-label" title="Accept?">Accept?</label>
+  </div>
+
+  <br>
+
   <h6 class="radio-title">Choose a Pet</h6>
   <div class="form-check">
     <input type="radio" id="cat" class="form-check-input" required
