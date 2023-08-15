@@ -13,4 +13,8 @@
   .radio-title:has(+.form-check > .form-check-input[type=radio]:required), .radio-title.required {
     @extend .required-star;
   }
+
+  .radio-title:has(+app-form-check > .form-check > .form-check-input[type=radio]:required) {
+    @extend .required-star;
+  }
 }

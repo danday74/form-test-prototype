@@ -4,6 +4,7 @@ import { Route2RoutingModule } from './route2-routing.module'
 import { Route2Component } from './components/route2/route2.component'
 import { FormsModule } from '@angular/forms'
 import { FormControlModule } from '../../modules/form-control/form-control.module'
+import { FormCheckModule } from '../../modules/form-check/form-check.module'
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { FormControlModule } from '../../modules/form-control/form-control.modul
     CommonModule,
     Route2RoutingModule,
     FormsModule,
-    FormControlModule
+    FormControlModule,
+    FormCheckModule
   ]
 })
 export class Route2Module {}
