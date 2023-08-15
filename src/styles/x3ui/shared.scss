@@ -22,6 +22,7 @@ form.x3ui-form {
 
   .form-check-label {
     @extend .ellipsis;
+    display: block; // not sure if we should use this
     margin-left: 1px;
   }
 
