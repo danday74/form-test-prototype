@@ -13,6 +13,11 @@
            [(ngModel)]="model.surname">
   </app-form-control>
 
+  <app-form-control label="Description">
+    <textarea class="form-control" name="description" rows="2" required minlength="5"
+              [(ngModel)]="model.description"></textarea>
+  </app-form-control>
+
   <app-form-control label="Car">
     <select class="form-select" name="car" required
             [ngModel]="model.car" (ngModelChange)="carChange($event)">
