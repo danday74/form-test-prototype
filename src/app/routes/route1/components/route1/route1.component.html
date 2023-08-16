@@ -16,7 +16,7 @@
 
   <div>
     <label for="description" class="form-label" title="Description">Description</label>
-    <textarea id="description" class="form-control" rows="2" required pattern="^[a-z]*$" minlength="5"
+    <textarea id="description" class="form-control" rows="2" required minlength="5"
               #description="ngModel" name="description" [(ngModel)]="model.description"></textarea>
     <app-form-errors label="Description" [model]="description"></app-form-errors>
   </div>
