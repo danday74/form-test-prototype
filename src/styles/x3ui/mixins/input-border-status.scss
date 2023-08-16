@@ -17,6 +17,12 @@
     }
   }
 
+  .form-floating > input.form-control {
+    &:has(+.form-label +app-form-errors > .x3ui-form-errors.instant-error) {
+      border-color: $failure;
+    }
+  }
+
   // $boxShadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); // default bootstrap box shadow for input focus
   $boxShadow: 0 0 0 0.3rem rgba(13, 110, 253, 0.25);
 
