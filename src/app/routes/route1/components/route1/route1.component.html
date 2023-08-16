@@ -14,6 +14,13 @@
     <app-form-errors label="Surname" [model]="surname" [errors]="{ pattern: 'lowercase letters only' }"></app-form-errors>
   </div>
 
+  <div class="form-floating">
+    <input class="form-control" placeholder="Username" required pattern="^[a-z]*$" minlength="5"
+           #username="ngModel" name="username" [(ngModel)]="model.username">
+    <label class="form-label">Username</label>
+    <app-form-errors label="Username" [model]="username"></app-form-errors>
+  </div>
+
   <div>
     <label for="description" class="form-label" title="Description">Description</label>
     <textarea id="description" class="form-control" rows="2" required minlength="5"
