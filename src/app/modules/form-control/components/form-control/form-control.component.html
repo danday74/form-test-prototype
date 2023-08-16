@@ -1,10 +1,21 @@
-<div #containerRef [class.x3ui-form-control-group-inline]="inline">
+<div #containerRef [class.x3ui-form-control-group-inline]="isInline" [class.form-floating]="isFloating">
 
-  <ng-container *ngIf="label">
-    <label class="form-label" [for]="id" [ngStyle]="{ width: labelWidth, maxWidth: labelMaxWidth }" [title]="label">{{ label }}</label>
+  <ng-container *ngIf="isFloating">
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+    <label class="form-label">{{ label }}</label>
   </ng-container>
 
-  <ng-content select="[input, select, textarea]"></ng-content>
+  <ng-container *ngIf="!isFloating">
+    <ng-container *ngIf="label">
+      <label class="form-label" [for]="id" [ngStyle]="{ width: labelWidth, maxWidth: labelMaxWidth }" [title]="label">{{ label }}</label>
+    </ng-container>
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+  </ng-container>
 
   <app-form-errors [label]="label" [model]="model" [errors]="errors"></app-form-errors>
+
+  <ng-template #content>
+    <ng-content select="[input, select, textarea]"></ng-content>
+  </ng-template>
+
 </div>
