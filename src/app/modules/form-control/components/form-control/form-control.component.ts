@@ -21,7 +21,7 @@ export class FormControlComponent implements OnInit, AfterViewInit, OnChanges {
 
   id: string
 
-  private formControl: HTMLInputElement | HTMLSelectElement
+  private formControl: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
 
   ngOnInit() {
     this.fixUnits()
@@ -42,11 +42,12 @@ export class FormControlComponent implements OnInit, AfterViewInit, OnChanges {
   private setFormControl(children: HTMLCollection) {
     const els: Element[] = Array.from(children)
     this.formControl = els.find((el: Element) => {
-      const formControl: HTMLInputElement | HTMLSelectElement = el as HTMLInputElement | HTMLSelectElement
-      return formControl.tagName === 'SELECT' || (formControl.tagName === 'INPUT' && formControl.type !== 'checkbox' && formControl.type !== 'radio')
-    }) as HTMLInputElement | HTMLSelectElement
+      const formControl: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement = el as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+      return formControl.tagName === 'TEXTAREA' || formControl.tagName === 'SELECT'
+        || (formControl.tagName === 'INPUT' && formControl.type !== 'checkbox' && formControl.type !== 'radio')
+    }) as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
     if (this.formControl) {
-      const formControlClass: string = this.formControl.tagName === 'INPUT' ? 'form-control' : 'form-select'
+      const formControlClass: string = this.formControl.tagName === 'SELECT' ? 'form-select' : 'form-control'
       this.formControl.classList.add(formControlClass)
     }
   }
@@ -54,7 +55,7 @@ export class FormControlComponent implements OnInit, AfterViewInit, OnChanges {
   private checkProjectedContent(children: HTMLCollection) {
     const expectedChildrenCount: number = this.label ? 3 : 2
     if (children.length !== expectedChildrenCount || !this.model || !this.formControl) {
-      let msg = 'only one <input> or one <select> element should be content projected to <app-form-control>'
+      let msg = 'only one <input> <select> or <textarea> element should be content projected to <app-form-control>'
       msg += ' and it must have [(ngModel)] or an equivalent - checkboxes and radios should use <app-form-check> instead'
       throw Error(msg)
     }
