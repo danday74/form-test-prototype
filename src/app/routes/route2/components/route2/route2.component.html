@@ -13,6 +13,11 @@
            [(ngModel)]="model.surname">
   </app-form-control>
 
+  <app-form-control label="Username" [floating]="true">
+    <input class="form-control" name="username" placeholder="Username" required pattern="^[a-z]*$" minlength="5"
+           [(ngModel)]="model.username">
+  </app-form-control>
+
   <app-form-control label="Description">
     <textarea class="form-control" name="description" rows="2" required minlength="5"
               [(ngModel)]="model.description"></textarea>
