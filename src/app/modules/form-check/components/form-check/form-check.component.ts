@@ -38,7 +38,7 @@ export class FormCheckComponent implements AfterViewInit {
   private checkProjectedContent(children: HTMLCollection) {
     const expectedChildrenCount: number = this.label ? 2 : 1
     if (children.length !== expectedChildrenCount || !this.model || !this.formCheck) {
-      let msg = 'only one <input type="checkbox"> or one <input type="radio"> element should be content projected to <app-form-check>'
+      let msg = 'only one <input type="checkbox"> or <input type="radio"> element should be content projected to <app-form-check>'
       msg += ' and it must have [(ngModel)] or an equivalent'
       throw Error(msg)
     }
