@@ -1,6 +1,7 @@
 export interface IModel {
   age: number
   surname: string
+  username: string
   description: string
   car: string
   agree1: boolean
