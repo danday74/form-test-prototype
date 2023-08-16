@@ -32,6 +32,12 @@ form.x3ui-form {
     font-style: italic;
   }
 
+  textarea.form-control {
+    border-radius: 5px 0 0 5px;
+    padding-top: 4px;
+    padding-bottom: 8px;
+  }
+
   .x3ui-form-control-group-inline {
     display: grid;
     grid-template-columns: auto 1fr;

@@ -1,10 +1,12 @@
 @import 'mixins/button-square-corners';
+@import 'mixins/input-background';
 @import 'mixins/input-no-box-shadow';
 @import 'mixins/input-square-corners';
 
 html.x3ui-current {
   form.x3ui-form {
     @include buttonSquareCorners;
+    @include inputBackground(#fff);
     @include inputNoBoxShadow;
     @include inputSquareCorners;
   }
