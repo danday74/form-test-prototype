@@ -2,4 +2,13 @@
   .form-control, .form-select {
     background-color: $color;
   }
+
+  $darkenPercent: 3%;
+
+  textarea.form-control {
+    border-top: 10px solid darken($color, $darkenPercent);
+    border-right: 2px solid darken($color, $darkenPercent);
+    border-bottom: 10px solid darken($color, $darkenPercent);
+    border-left: 2px solid darken($color, $darkenPercent);
+  }
 }
