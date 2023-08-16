@@ -46,8 +46,10 @@ export class FormErrorsComponent extends DestroyerComponent implements OnInit, A
   }
 
   ngAfterViewInit() {
-    this.model.valueChanges.pipe(takeUntil(this.unsubscribe$)).subscribe(() => {
-      this.createErrorComponent()
+    setTimeout(() => {
+      this.model.valueChanges.pipe(takeUntil(this.unsubscribe$)).subscribe(() => {
+        this.createErrorComponent()
+      })
     })
   }
 
