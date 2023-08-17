@@ -36,6 +36,7 @@
       <option *ngFor="let car of cars" [value]="car.value">{{ car.name }}</option>
     </select>
 
+    <!-- app-form-errors alternative (no instant errors) -->
     <div class="x3ui-form-errors" [class.invisible]="car.valid || car.untouched">
       <span *ngIf="car.errors">{{ keys(car.errors)[0] }}</span>
     </div>

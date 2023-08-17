@@ -56,7 +56,7 @@ form.x3ui-form {
     grid-template-columns: auto 1fr;
     column-gap: 15px;
 
-    .form-label {
+    & > .form-label {
       margin-top: auto;
       margin-bottom: auto;
       overflow: hidden;
@@ -66,11 +66,11 @@ form.x3ui-form {
       max-height: 2lh;
     }
 
-    .form-control, .form-select {
+    & > .form-control, & > .form-select {
       align-self: center;
     }
 
-    app-form-errors {
+    & > app-form-errors, & > .x3ui-form-errors {
       grid-column: 1 / 3;
     }
   }
