@@ -14,6 +14,8 @@
     <app-form-errors label="Surname" [model]="surname" [errors]="{ pattern: 'lowercase letters only' }"></app-form-errors>
   </div>
 
+  <div class="gap">&nbsp;</div>
+
   <div class="form-floating">
     <input class="form-control" placeholder="Username" required pattern="^[a-z]*$" minlength="5"
            #username="ngModel" name="username" [(ngModel)]="model.username">
@@ -53,7 +55,7 @@
     <label for="agree2" class="form-check-label" title="Agree Two?">Agree Two?</label>
   </div>
 
-  <br>
+  <div class="gap">&nbsp;</div>
 
   <!-- only difference to a checkbox is the form-switch class -->
   <div class="form-check form-switch">
@@ -67,7 +69,7 @@
     <label for="accept2" class="form-check-label" title="Accept Two?">Accept Two?</label>
   </div>
 
-  <br>
+  <div class="gap">&nbsp;</div>
 
   <h6 class="radio-title">Choose a Pet</h6>
   <div class="form-check">
@@ -81,7 +83,7 @@
     <label for="dog" class="form-check-label" title="Dog">Dog</label>
   </div>
 
-  <br>
+  <div class="gap">&nbsp;</div>
 
   <button type="submit" class="btn btn-primary" [disabled]="myForm.form.invalid">submit</button>
 </form>

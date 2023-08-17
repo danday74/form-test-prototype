@@ -1,7 +1,7 @@
 <form (ngSubmit)="submit()" #myForm="ngForm" class="x3ui-form" novalidate>
 
-  <!-- Adding class="xxxxx" is optional since this is added by <app-form-control> and <app-form-check> -->
-  <!-- but adding this may help to reduce jump on page load for busy pages -->
+  <!-- Adding class="form-control" etc is optional since these are added by <app-form-control> and <app-form-check> -->
+  <!-- but adding these may help to reduce jump on page load for busy pages -->
 
   <app-form-control label="Age" [inline]="true">
     <input type="number" class="form-control" name="age" required pattern="^\d*$" min="18" max="120"
@@ -12,6 +12,8 @@
     <input class="form-control" name="surname" required pattern="^[a-z]*$" minlength="5"
            [(ngModel)]="model.surname">
   </app-form-control>
+
+  <div class="gap">&nbsp;</div>
 
   <app-form-control label="Username" [floating]="true">
     <input class="form-control" name="username" placeholder="Username" required pattern="^[a-z]*$" minlength="5"
@@ -38,7 +40,7 @@
     <input type="checkbox" class="form-check-input" name="agree2" required [(ngModel)]="model.agree2">
   </app-form-check>
 
-  <br>
+  <div class="gap">&nbsp;</div>
 
   <app-form-check label="Accept One?" [switch]="true">
     <input type="checkbox" class="form-check-input" name="accept1" required [(ngModel)]="model.accept1">
@@ -47,7 +49,7 @@
     <input type="checkbox" class="form-check-input" name="accept2" required [(ngModel)]="model.accept2">
   </app-form-check>
 
-  <br>
+  <div class="gap">&nbsp;</div>
 
   <h6 class="radio-title">Choose a Pet</h6>
   <app-form-check label="Cat">
@@ -57,7 +59,7 @@
     <input type="radio" class="form-check-input" name="pet" required value="dog" [(ngModel)]="model.pet">
   </app-form-check>
 
-  <br>
+  <div class="gap">&nbsp;</div>
 
   <button type="submit" class="btn btn-primary" [disabled]="myForm.form.invalid">submit</button>
 </form>
