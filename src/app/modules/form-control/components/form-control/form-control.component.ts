@@ -23,7 +23,7 @@ import { TFormControl } from '../../types/t-form-control'
 export class FormControlComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() label: string
   @Input() errors: IFormErrors = {}
-  @Input() floating = false
+  @Input() floating = false // https://getbootstrap.com/docs/5.3/forms/floating-labels
   @Input() inline = false
   @Input() labelWidth: string = null
   @Input() labelMaxWidth: string = null
