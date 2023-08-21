@@ -2,15 +2,15 @@
 
   // all of these used :after but since .required-star has :after its no longer needed
 
-  .form-label:has(+.form-control:required), .form-label:has(+.form-select:required), .form-label.required {
+  .form-label:has(+.form-control:required), .form-label:has(+.form-select:required) {
     @extend .required-star;
   }
 
-  .form-check-input[type=checkbox]:required + .form-check-label, .form-check-label.required {
+  .form-check-input[type=checkbox]:required + .form-check-label {
     @extend .required-star;
   }
 
-  .radio-title:has(+.form-check > .form-check-input[type=radio]:required), .radio-title.required {
+  .radio-title:has(+.form-check > .form-check-input[type=radio]:required) {
     @extend .required-star;
   }
 
