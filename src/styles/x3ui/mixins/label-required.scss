@@ -1,6 +1,6 @@
 @mixin labelRequired {
 
-  // all of these used :after but since .required-star has :after its no longer needed
+  // these used :after but since .required-star has :after its no longer needed
 
   .form-label:has(+.form-control:required), .form-label:has(+.form-select:required) {
     @extend .required-star;
