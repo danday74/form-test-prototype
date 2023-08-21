@@ -39,16 +39,11 @@ form.x3ui-form {
     min-height: 80px;
   }
 
-  .form-floating > .form-control-plaintext ~ label::after, .form-floating > .form-control:focus ~ label::after, .form-floating > .form-control:not(:placeholder-shown) ~ label::after, .form-floating > .form-select ~ label::after {
+  .form-floating > .form-control:focus ~ label::after,
+  .form-floating > .form-control:not(:placeholder-shown) ~ label::after,
+  .form-floating > .form-control-plaintext ~ label::after,
+  .form-floating > .form-select ~ label::after {
     background-color: transparent;
-  }
-
-  .form-floating > .form-control-plaintext ~ label, .form-floating > .form-control:focus ~ label, .form-floating > .form-control:not(:placeholder-shown) ~ label, .form-floating > .form-select ~ label {
-    // color: rgba(var(--bs-body-color-rgb), .65);
-  }
-
-  .form-floating > label {
-    // color: var(--bs-body-color);
   }
 
   .x3ui-form-control-group-inline {

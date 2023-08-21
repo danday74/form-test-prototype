@@ -17,4 +17,10 @@
   .radio-title:has(+app-form-check > .form-check > .form-check-input[type=radio]:required) {
     @extend .required-star;
   }
+
+  // we need :after here
+  .form-floating > input.form-control:required + label:after {
+    position: static;
+    @extend .required-star;
+  }
 }
