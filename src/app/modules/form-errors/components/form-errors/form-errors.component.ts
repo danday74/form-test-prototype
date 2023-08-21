@@ -50,6 +50,7 @@ export class FormErrorsComponent extends DestroyerComponent implements OnInit, A
       this.model.valueChanges.pipe(takeUntil(this.unsubscribe$)).subscribe(() => {
         this.createErrorComponent()
       })
+      this.createErrorComponent()
     })
   }
 
