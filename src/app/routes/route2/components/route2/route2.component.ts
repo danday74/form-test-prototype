@@ -30,6 +30,10 @@ export class Route2Component {
     console.log('submit', this.model)
   }
 
+  trackByFunc(_idx: number, car: ICar): string {
+    return car.value
+  }
+
   carChange(car: string) {
     this.model.car = car
   }

@@ -1,9 +1,9 @@
-import { TFormStyle } from '../types/t-form-style'
+import { TTheme } from '../types/t-theme'
 
 export interface IAppConfig {
-  formStyle: {
-    styles: TFormStyle[]
-    default: TFormStyle
+  theme: {
+    themes: TTheme[]
+    default: TTheme
     prefix: string
   }
 }

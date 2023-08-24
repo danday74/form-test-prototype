@@ -22,7 +22,7 @@ form.x3ui-form {
 
   .form-check-label {
     @extend .ellipsis;
-    display: block; // adding .ellipsis increases gap between checkboxes / radios, this fixes the issue
+    display: table-caption; // adding .ellipsis increases gap between checkboxes / radios, this fixes the issue
     margin-left: 1px;
   }
 

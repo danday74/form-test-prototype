@@ -29,4 +29,8 @@ export class Route1Component {
   submit() {
     console.log('submit', this.model)
   }
+
+  trackByFunc(_idx: number, car: ICar): string {
+    return car.value
+  }
 }

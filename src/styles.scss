@@ -1,9 +1,15 @@
+@import 'src/styles/animations';
 @import 'src/styles/thin-scrollbar';
 @import 'src/styles/x3ui';
+
+html, body {
+  height: 100%;
+}
 
 body {
   overflow-y: scroll;
   user-select: none;
+  opacity: 0;
 }
 
 * {

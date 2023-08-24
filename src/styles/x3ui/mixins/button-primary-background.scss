@@ -1,7 +1,7 @@
 @import 'src/styles/colors';
 @import 'src/styles/mixins/button-variant';
 
-@mixin buttonPrimaryBackground($color: $reedPiccadilyBlue) {
+@mixin buttonPrimaryBackground($color: $REEDDarkBlue) {
   button.btn-primary {
     @include buttonVariant($color, darken($color, 10%));
   }
