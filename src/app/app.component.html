@@ -1,18 +1,42 @@
-<header>
-  <div>
-    <a routerLink="route1" routerLinkActive="active">Custom Form</a>
-    <a routerLink="route2" routerLinkActive="active">Form Controls</a>
-  </div>
+<div class="boody">
+  <header>
 
-  <div class="btn-group">
-    <button *ngFor="let fs of formStyles" class="btn" [ngClass]="formStyle === fs ? 'btn-primary' : 'btn-outline-primary'" (click)="changeFormStyle(fs)">
-      <span>{{ fs | case: 'start' | replace: 'Bootstrap Plus': 'BS Plus' }}</span>
-    </button>
-  </div>
-</header>
+    <div>
+      <a routerLink="route1" routerLinkActive="active">Custom Form</a>
+      <a routerLink="route2" routerLinkActive="active">Form Controls</a>
+    </div>
 
-<main>
-  <router-outlet></router-outlet>
-</main>
+    <app-css-filters></app-css-filters>
 
-<footer>&nbsp;</footer>
+    <div class="lod-and-theme">
+
+      <div class="lod">
+        <button class="btn" (click)="toggleLod()">
+          <span *ngIf="lod === 'light'" class="material-icons-two-tone light fade-in-slow">light_mode</span>
+          <span *ngIf="lod === 'dark'" class="material-icons-two-tone dark fade-in-slow">dark_mode</span>
+        </button>
+      </div>
+
+      <div class="dropdown theme-dropdown">
+        <button class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+          <span>{{ theme | case: 'start' | replace: 'Bootstrap Plus': 'BS Plus' }}</span>
+        </button>
+        <ul class="dropdown-menu">
+          <li *ngFor="let t of themes; trackBy: trackByFunc">
+            <button class="dropdown-item" [class.active]="t === theme" (click)="changeTheme(t)">
+              <span>{{ t | case: 'start' | replace: 'Bootstrap Plus': 'BS Plus' }}</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer>&nbsp;</footer>
+
+</div>
