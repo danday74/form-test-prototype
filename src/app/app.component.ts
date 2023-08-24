@@ -1,40 +1,33 @@
-import { Component, OnInit } from '@angular/core'
-import { TFormStyle } from './types/t-form-style'
-import { StorageService } from './services/storage.service'
+import { Component } from '@angular/core'
+import { TTheme } from './types/t-theme'
 import { appConfig } from './app-config'
+import { ThemeService } from './services/theme.service'
+import { TLod } from './types/t-lod'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  readonly formStyles: TFormStyle[] = appConfig.formStyle.styles
-  formStyle: TFormStyle = this.getFormStyle()
+export class AppComponent {
+  readonly themes: TTheme[] = appConfig.theme.themes
+  theme: TTheme = this.themeService.getTheme()
+  lod: TLod = this.themeService.getLod()
 
-  constructor(private storageService: StorageService) {}
+  constructor(private themeService: ThemeService) {}
 
-  ngOnInit() {
-    this.addFormStyleCssClassToHead()
+  changeTheme(theme: TTheme) {
+    this.themeService.activateTheme(theme).then((theme: TTheme) => {
+      if (theme) this.theme = theme
+    })
   }
 
-  changeFormStyle(formStyle: TFormStyle) {
-    this.formStyle = formStyle
-    this.storageService.setItem(appConfig.formStyle.prefix, formStyle)
-    this.addFormStyleCssClassToHead()
+  toggleLod() {
+    this.lod = this.lod === 'light' ? 'dark' : 'light'
+    this.themeService.activateLod(this.lod)
   }
 
-  private addFormStyleCssClassToHead() {
-    const html: HTMLHtmlElement = document.getElementsByTagName('html')[0]
-    const prefix = `${appConfig.formStyle.prefix}-`
-    const classes: string[] = html.className.split(' ').filter((clazz: string) => !clazz.startsWith(prefix))
-    html.className = classes.join(' ')
-    html.classList.add(prefix + this.formStyle)
-  }
-
-  private getFormStyle(): TFormStyle {
-    let formStyle: TFormStyle = this.storageService.getItem(appConfig.formStyle.prefix, appConfig.formStyle.default)
-    if (!this.formStyles.includes(formStyle)) formStyle = appConfig.formStyle.default
-    return formStyle
+  trackByFunc(_idx: number, theme: TTheme): TTheme {
+    return theme
   }
 }
