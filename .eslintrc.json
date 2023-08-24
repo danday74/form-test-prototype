@@ -19,8 +19,55 @@
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
       "rules": {
-        "semi": ["error", "never"],
-        "comma-dangle": ["error", "never"],
+        "comma-dangle": [
+          "error",
+          "never"
+        ],
+        "eqeqeq": [
+          "error",
+          "always",
+          {
+            "null": "ignore"
+          }
+        ],
+        "semi": [
+          "error",
+          "never"
+        ],
+        "no-undef-init": "error",
+        "no-useless-constructor": "off",
+        "@typescript-eslint/no-useless-constructor": "error",
+        "@typescript-eslint/no-inferrable-types": "error",
+        "@typescript-eslint/ban-types": [
+          "error",
+          {
+            "types": {
+              "undefined": "Its not needed because strictNullChecks is off",
+              "null": "Its not needed because strictNullChecks is off"
+            },
+            "extendDefaults": true
+          }
+        ],
+        "@typescript-eslint/member-delimiter-style": [
+          "error",
+          {
+            "multiline": {
+              "delimiter": "none",
+              "requireLast": false
+            },
+            "singleline": {
+              "delimiter": "comma",
+              "requireLast": false
+            },
+            "multilineDetection": "brackets"
+          }
+        ],
+        "@typescript-eslint/explicit-member-accessibility": [
+          "error",
+          {
+            "accessibility": "no-public"
+          }
+        ],
         "@angular-eslint/directive-selector": [
           "error",
           {
@@ -52,7 +99,8 @@
           {
             "allowNullOrUndefined": true
           }
-        ]
+        ],
+        "@angular-eslint/template/use-track-by-function": "error"
       }
     }
   ]
