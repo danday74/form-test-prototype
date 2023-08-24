@@ -1,0 +1,5 @@
+@import 'src/styles/mixins/fade-in';
+
+.fade-in-body {
+  @include fadeIn(0, 0);
+}

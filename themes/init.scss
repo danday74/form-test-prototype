@@ -1,0 +1,15 @@
+@import '../node_modules/bootstrap/scss/functions';
+@import '../node_modules/bootstrap/scss/variables';
+
+$theme-colors: (
+        "primary": transparent,
+        "secondary": transparent,
+        "success": transparent,
+        "info": transparent,
+        "warning": transparent,
+        "danger": transparent,
+        "light": transparent,
+        "dark": transparent
+);
+
+@import '../node_modules/bootstrap/scss/bootstrap';

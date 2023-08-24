@@ -1,0 +1,14 @@
+@import '../node_modules/bootstrap/scss/functions';
+@import '../node_modules/bootstrap/scss/variables';
+@import '../src/styles/colors';
+
+// https://medium.com/@youssefzidan/overriding-bootstrap-theme-5651e096e792
+
+$custom-colors: (
+        "primary": $REEDDarkBlue,
+        "secondary": $REEDLilac
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+@import '../node_modules/bootstrap/scss/bootstrap';
