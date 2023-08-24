@@ -1,20 +1,30 @@
+@import 'src/styles/mixins/fade-in';
+@import 'src/styles/vars';
+
+.boody {
+  height: 100%;
+  // background-color: yellow;
+}
+
 header {
-  position: fixed;
-  top: 0;
-  background-color: #333;
+  position: sticky;
   width: 100%;
+  height: $headerHeight * 1px;
+  top: 0;
+  z-index: 3;
+  background-color: #333;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
-  padding: 20px;
+  padding: 0 20px;
+  // opacity: 0.2;
 
   a {
     background-color: #222;
     border-radius: 5px;
     margin-right: 20px;
     padding: 5px 20px 7px;
-    color: #FFF;
+    color: #eee;
     text-decoration: none;
     min-width: 145px;
     display: inline-block;
@@ -22,6 +32,7 @@ header {
 
     &:hover {
       background-color: #111;
+      color: #fff;
     }
 
     &.active {
@@ -29,21 +40,65 @@ header {
     }
   }
 
-  button {
-    min-width: 100px;
+  .lod-and-theme {
+    display: flex;
+    align-items: center;
+
+    .lod {
+
+      & > button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        margin-right: 20px;
+
+        &:hover {
+          background-color: #222;
+        }
+
+        & > span {
+          font-size: 40px;
+
+          &.light {
+            filter: invert(95%) sepia(46%) saturate(2696%) hue-rotate(357deg) brightness(107%) contrast(102%);
+          }
+
+          &.dark {
+            filter: invert(100%);
+          }
+        }
+      }
+    }
+
+    .theme-dropdown {
+      $themeDropDownWidth: 115;
+
+      .dropdown-toggle {
+        min-width: $themeDropDownWidth * 1px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .dropdown-menu {
+        min-width: $themeDropDownWidth * 1px;
+      }
+    }
   }
 }
 
 main {
-  margin-top: 100px;
-  margin-bottom: 30px;
   padding: 40px;
+  min-height: calc(100% - #{$headerHeight + $footerHeight} * 1px);
+  // background-color: red;
 }
 
 footer {
-  height: 30px;
-  background-color: #333;
-  position: fixed;
-  bottom: 0;
+  position: sticky;
   width: 100%;
+  height: $footerHeight * 1px;
+  bottom: 0;
+  background-color: #333;
+  // opacity: 0.5;
 }
