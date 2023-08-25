@@ -76,7 +76,12 @@ export class CssFiltersComponent implements OnInit, OnChanges {
   private applyFilters() {
 
     const filter: string = this.order.reduce((acc: string, fltr: TCssFilter) => {
-      acc += `${fltr}(${this.filters[fltr]}%) `
+
+      let unit = '%'
+      if (fltr === 'blur') unit = 'px'
+      if (fltr === 'hue-rotate') unit = 'deg'
+
+      acc += `${fltr}(${this.filters[fltr]}${unit}) `
       return acc
     }, '').trim()
 
@@ -103,6 +108,12 @@ export class CssFiltersComponent implements OnInit, OnChanges {
     } else if (this.filter === 'opacity') {
       this.min = 20
       this.max = 100
+    } else if (this.filter === 'blur') {
+      this.min = 0
+      this.max = 10
+    } else if (this.filter === 'hue-rotate') {
+      this.min = 0
+      this.max = 360
     } else {
       this.min = 0
       this.max = 100
