@@ -1,8 +1,4 @@
-$csfBg: #292929;
-$csfGrey1: #222;
-$csfGrey2: #333;
-$csfDarkAmount: 4%;
-$csfLightAmount: 0%;
+@import '../../styles/css-filters-shared';
 
 :host-context(html[data-bs-theme='dark']) {
   --csf-bg: #{darken($csfBg, $csfDarkAmount)};

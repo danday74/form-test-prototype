@@ -4,6 +4,7 @@ import { CssFiltersComponent } from './components/css-filters/css-filters.compon
 import { FormsModule } from '@angular/forms'
 import { DirectivesModule } from '../../directives/directives.module'
 import { CssFiltersDialogComponent } from './components/css-filters-dialog/css-filters-dialog.component'
+import { PipesModule } from '../../pipes/pipes.module'
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CssFiltersDialogComponent } from './components/css-filters-dialog/css-f
   imports: [
     CommonModule,
     FormsModule,
-    DirectivesModule
+    DirectivesModule,
+    PipesModule
   ]
 })
 export class CssFiltersModule {}

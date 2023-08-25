@@ -25,7 +25,6 @@ export class CssFiltersDialogComponent implements OnInit, AfterViewInit, OnDestr
   @ViewChild('sortableRef') sortableRef: ElementRef<HTMLUListElement>
 
   readonly defaultCssFilters: ICssFilters = defaultCssFilters
-  Math: Math = Math
 
   dismissed: boolean = this.storageService.getItem(csfStorageKeys.dismissed, false)
 
@@ -41,6 +40,7 @@ export class CssFiltersDialogComponent implements OnInit, AfterViewInit, OnDestr
     this.sortable = new Sortable(this.sortableRef.nativeElement, {
       handle: '.css-filters-handle',
       ghostClass: 'css-filters-ghost',
+      dragClass: 'css-filters-drag',
       animation: 200,
       store: {
         get: (/* sortable: Sortable */) => this.order,
@@ -54,8 +54,7 @@ export class CssFiltersDialogComponent implements OnInit, AfterViewInit, OnDestr
     this.sortable = null
   }
 
-  onChangeFilter(item: KeyValue<TCssFilter, number>) {
-    const filter: TCssFilter = item.key
+  onChangeFilter(filter: TCssFilter) {
     this.changeFilter.emit(filter)
   }
 
