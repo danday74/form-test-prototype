@@ -3,17 +3,20 @@ import { CommonModule } from '@angular/common'
 import { TypeofPipe } from './typeof/typeof.pipe'
 import { CasePipe } from './case/case.pipe'
 import { ReplacePipe } from './replace/replace.pipe'
+import { AbsPipe } from './abs.pipe'
 
 @NgModule({
   declarations: [
     CasePipe,
     ReplacePipe,
-    TypeofPipe
+    TypeofPipe,
+    AbsPipe
   ],
   exports: [
     CasePipe,
     ReplacePipe,
-    TypeofPipe
+    TypeofPipe,
+    AbsPipe
   ],
   imports: [
     CommonModule
