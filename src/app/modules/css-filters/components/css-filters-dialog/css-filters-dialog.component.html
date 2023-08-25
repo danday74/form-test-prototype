@@ -1,0 +1,40 @@
+<div class="css-filters-dialog" [style.width]="width">
+  <ul #sortableRef>
+    <!--suppress TypeScriptValidateTypes -->
+    <li *ngFor="let item of filters | keyvalue: orderFunc; trackBy: trackByFunc"
+        [attr.data-id]="item.key" [class.active]="item.key === filter" [class.modified]="item.value !== defaultCssFilters[item.key]"
+        (click)="onChangeFilter(item.key)">
+
+      <div class="item-key">
+        <button class="btn css-filters-handle" (click)="noop($event)">
+          <span class="material-icons-round">drag_handle</span>
+        </button>
+        <span class="item-text">{{ item.key | titlecase }}</span>
+      </div>
+
+      <div class="item-value">
+        <ng-container *appVar="item.value - defaultCssFilters[item.key] as diff">
+          <span *ngIf="diff > 0" class="diff" [title]="diff + '% up on default value'">
+            <span class="material-icons-round">arrow_drop_up</span>
+          </span>
+          <span *ngIf="diff < 0" class="diff" [title]="(diff | abs) + '% down on default value'">
+            <span class="material-icons-round">arrow_drop_down</span>
+          </span>
+        </ng-container>
+        <span>{{ item.value }}%</span>
+      </div>
+
+    </li>
+  </ul>
+
+  <div class="buttons">
+    <button class="btn btn-secondary btn-sm btn-reset-all" (click)="onResetAll()">Reset All</button>
+  </div>
+
+  <ng-container *ngIf="!dismissed">
+    <div class="info-panel">
+      <span>Drag handle to change filter order</span>
+      <button class="btn btn-dismiss" (click)="dismiss()">&times;</button>
+    </div>
+  </ng-container>
+</div>
