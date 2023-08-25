@@ -6,4 +6,6 @@ export interface ICssFilters extends Record<TCssFilter, number> {
   grayscale: number
   saturate: number
   sepia: number
+  invert: number
+  opacity: number
 }

@@ -1,1 +1,1 @@
-export type TCssFilter = 'brightness' | 'contrast' | 'grayscale' | 'saturate' | 'sepia'
+export type TCssFilter = 'brightness' | 'contrast' | 'grayscale' | 'saturate' | 'sepia' | 'invert' | 'opacity'

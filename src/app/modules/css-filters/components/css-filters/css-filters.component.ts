@@ -94,15 +94,18 @@ export class CssFiltersComponent implements OnInit, OnChanges {
   }
 
   private setMinMax() {
-    if (this.filter === 'grayscale' || this.filter === 'sepia') {
-      this.min = 0
-      this.max = 100
-    } else if (this.filter === 'brightness' || this.filter === 'contrast') {
+    if (this.filter === 'brightness' || this.filter === 'contrast') {
       this.min = 20
       this.max = 200
-    } else {
+    } else if (this.filter === 'saturate') {
       this.min = 0
       this.max = 200
+    } else if (this.filter === 'opacity') {
+      this.min = 20
+      this.max = 100
+    } else {
+      this.min = 0
+      this.max = 100
     }
   }
 
