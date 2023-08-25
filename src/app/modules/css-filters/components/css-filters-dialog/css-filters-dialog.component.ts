@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnDestroy, Output, ViewChild } from '@angular/core'
+import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core'
 import { KeyValue } from '@angular/common'
 import { TCssFilter } from '../../../../types/t-css-filter'
 import { ICssFilters } from '../../../../interfaces/i-css-filters'
@@ -12,7 +12,7 @@ import { csfStorageKeys } from '../../data/csf-storage-keys'
   templateUrl: './css-filters-dialog.component.html',
   styleUrls: ['./css-filters-dialog.component.scss']
 })
-export class CssFiltersDialogComponent implements AfterViewInit, OnDestroy {
+export class CssFiltersDialogComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() width: string
   @Input() filters: ICssFilters
   @Input() filter: TCssFilter
@@ -32,6 +32,10 @@ export class CssFiltersDialogComponent implements AfterViewInit, OnDestroy {
   private sortable: Sortable
 
   constructor(private storageService: StorageService) {}
+
+  ngOnInit() {
+    this.onChangeOrder = this.onChangeOrder.bind(this)
+  }
 
   ngAfterViewInit() {
     this.sortable = new Sortable(this.sortableRef.nativeElement, {
