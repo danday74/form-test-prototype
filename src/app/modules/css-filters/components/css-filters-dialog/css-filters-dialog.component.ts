@@ -18,7 +18,7 @@ export class CssFiltersDialogComponent implements OnInit, AfterViewInit, OnDestr
   @Input() filter: TCssFilter
   @Input() order: TCssFilter[]
 
-  @Output() changeOrder = new EventEmitter<TCssFilter[]>()
+  @Output() updateOrder = new EventEmitter<TCssFilter[]>()
   @Output() changeFilter = new EventEmitter<TCssFilter>()
   @Output() resetAll = new EventEmitter<void>()
 
@@ -33,7 +33,7 @@ export class CssFiltersDialogComponent implements OnInit, AfterViewInit, OnDestr
   constructor(private storageService: StorageService) {}
 
   ngOnInit() {
-    this.onChangeOrder = this.onChangeOrder.bind(this)
+    this.onUpdateOrder = this.onUpdateOrder.bind(this)
   }
 
   ngAfterViewInit() {
@@ -44,7 +44,7 @@ export class CssFiltersDialogComponent implements OnInit, AfterViewInit, OnDestr
       animation: 200,
       store: {
         get: (/* sortable: Sortable */) => this.order,
-        set: this.onChangeOrder
+        set: this.onUpdateOrder
       }
     })
   }
@@ -82,8 +82,8 @@ export class CssFiltersDialogComponent implements OnInit, AfterViewInit, OnDestr
     evt.stopPropagation()
   }
 
-  private onChangeOrder(sortable: Sortable) {
+  private onUpdateOrder(sortable: Sortable) {
     const order: TCssFilter[] = sortable.toArray() as TCssFilter[]
-    this.changeOrder.emit(order)
+    this.updateOrder.emit(order)
   }
 }
