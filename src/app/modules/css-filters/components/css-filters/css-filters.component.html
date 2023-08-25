@@ -1,0 +1,20 @@
+<div class="css-filters" [style.width]="width">
+  <div class="css-filter">
+    <label for="active-filter" class="form-label">{{ filter | titlecase }} {{ filters[filter] }}%</label>
+    <input id="active-filter" type="range" class="form-range" [min]="min" [max]="max"
+           [ngModel]="filters[filter]" (ngModelChange)="sliderUpdateFilter($event)">
+  </div>
+
+  <div class="buttons">
+    <button class="btn btn-reset" title="Reset" (click)="resetFilter()">
+      <span class="material-icons-round">loop</span>
+    </button>
+    <button class="btn btn-toggle" title="Toggle Dialog" (click)="toggleDialog()">
+      <span class="material-icons-round" [class.expanded]="showDialog">expand_more</span>
+    </button>
+  </div>
+</div>
+
+<ng-container *ngIf="showDialog">
+  <app-css-filters-dialog [width]="width" [filters]="filters" [filter]="filter"></app-css-filters-dialog>
+</ng-container>
