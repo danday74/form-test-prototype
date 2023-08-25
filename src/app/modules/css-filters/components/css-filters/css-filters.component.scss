@@ -1,0 +1,78 @@
+$csfBg: #292929;
+$csfGrey1: #222;
+$csfGrey2: #333;
+$csfDarkAmount: 4%;
+$csfLightAmount: 0%;
+
+:host-context(html[data-bs-theme='dark']) {
+  --csf-bg: #{darken($csfBg, $csfDarkAmount)};
+  --csf-grey1: #{darken($csfGrey1, $csfDarkAmount)};
+  --csf-grey2: #{darken($csfGrey2, $csfDarkAmount)};
+  --csf-text-color: #eee;
+}
+
+:host-context(:root, html[data-bs-theme='light']) {
+  --csf-bg: #{lighten($csfBg, $csfLightAmount)};
+  --csf-grey1: #{lighten($csfGrey1, $csfLightAmount)};
+  --csf-grey2: #{lighten($csfGrey2, $csfLightAmount)};
+  --csf-text-color: #eee;
+}
+
+.css-filters {
+  display: flex;
+
+  .css-filter {
+    background-color: var(--csf-bg);
+    padding: 8px 10px 0;
+    // border-radius: 5px 0 0 5px;
+
+    label[for=active-filter] {
+      width: 100%;
+      text-align: center;
+      color: var(--csf-text-color);
+    }
+  }
+
+  .buttons {
+    border-left: 1px solid var(--csf-grey2);
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      background-color: var(--csf-bg);
+      height: 50%;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      color: var(--csf-text-color);
+
+      & > span {
+        font-size: 22px;
+        transition: transform 400ms;
+      }
+
+      &:hover {
+        color: #fff;
+        background-color: var(--csf-grey1);
+      }
+
+      &.btn-reset {
+        border-bottom-right-radius: 0;
+        border-bottom: 1px solid var(--csf-grey2);
+
+        &:hover > span {
+          transform: rotate(180deg);
+        }
+      }
+
+      &.btn-toggle {
+        border-top-right-radius: 0;
+
+        & > span.expanded {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}
