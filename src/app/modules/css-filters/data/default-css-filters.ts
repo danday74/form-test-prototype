@@ -6,6 +6,8 @@ export const defaultCssFilters: ICssFilters = {
   grayscale: 0,
   saturate: 100,
   sepia: 0,
+  'hue-rotate': 0,
   invert: 0,
+  blur: 0,
   opacity: 100
 }
