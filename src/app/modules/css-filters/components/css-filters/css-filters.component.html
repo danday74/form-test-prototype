@@ -2,7 +2,7 @@
   <div class="css-filter">
     <label for="active-filter" class="form-label">{{ filter | titlecase }} {{ filters[filter] }}%</label>
     <input id="active-filter" type="range" class="form-range" [min]="min" [max]="max"
-           [ngModel]="filters[filter]" (ngModelChange)="sliderUpdateFilter($event)">
+           [ngModel]="filters[filter]" (ngModelChange)="sliderUpdateFilterValue($event)">
   </div>
 
   <div class="buttons">
@@ -16,5 +16,7 @@
 </div>
 
 <ng-container *ngIf="showDialog">
-  <app-css-filters-dialog [width]="width" [filters]="filters" [filter]="filter"></app-css-filters-dialog>
+  <app-css-filters-dialog [width]="width" [filters]="filters" [filter]="filter" [order]="order"
+                          (changeFilter)="updateFilter($event)" (changeOrder)="updateOrder($event)" (resetAll)="resetAll()">
+  </app-css-filters-dialog>
 </ng-container>
