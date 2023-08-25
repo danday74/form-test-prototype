@@ -1,0 +1,119 @@
+@import '../../styles/css-filters-shared';
+@import 'src/styles/colors';
+
+:host-context(html[data-bs-theme='dark']) {
+  --csf-grey2: #{darken($csfGrey2, $csfDarkAmount)};
+  --csf-dialog-bg: #{darken($csfBg, $csfVeryDarkAmount)};
+  --csf-dialog-box-shadow: none;
+  --csf-active: #{darken($csfGrey2, $csfDarkAmount)};
+  --csf-info-panel-color: var(--bs-gray-500);
+}
+
+:host-context(:root, html[data-bs-theme='light']) {
+  --csf-grey2: #{lighten($csfGrey2, $csfLightAmount)};
+  --csf-dialog-bg: #f7f7f7;
+  --csf-dialog-box-shadow: 3px 3px 2px #999;
+  --csf-active: #{$REEDLightBlue};
+  --csf-info-panel-color: #777;
+}
+
+.css-filters-dialog {
+  position: absolute;
+  box-shadow: var(--csf-dialog-box-shadow);
+  background-color: var(--csf-dialog-bg);
+  border-radius: 5px;
+  margin-top: 2px;
+  padding: 10px 0;
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 15px;
+      cursor: pointer;
+      font-size: 15px;
+
+      &.active {
+        background-color: var(--csf-active);
+      }
+
+      .item-key {
+        display: flex;
+        align-items: center;
+
+        .css-filters-handle {
+          border: none;
+          padding: 5px 0;
+          display: flex;
+          align-items: center;
+          cursor: grab;
+
+          & > span {
+            font-size: 22px;
+            color: #555;
+          }
+        }
+
+        .item-text {
+          margin-left: 10px;
+        }
+      }
+
+      .item-value {
+        display: flex;
+        align-items: center;
+
+        .diff {
+          display: flex;
+          align-items: center;
+          position: relative;
+          top: 1px;
+        }
+      }
+    }
+  }
+
+  .buttons {
+    padding: 10px 15px 0;
+
+    .btn-reset-all {
+      width: 100%;
+    }
+  }
+
+  .info-panel {
+    border-top: 1px solid var(--csf-grey2);
+    margin-top: 10px;
+    margin-bottom: -3px;
+    padding: 4px 15px 0;
+    color: var(--csf-info-panel-color);
+    position: relative;
+    font-size: 14px;
+
+    .btn-dismiss {
+      border: none;
+      position: absolute;
+      top: 0;
+      right: 7px;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      //background-color: pink;
+    }
+  }
+
+  .css-filters-ghost {
+    background-color: rgba($REEDLightBlue, 0.75) !important;
+  }
+
+  .css-filters-drag {
+    background-color: transparent !important;
+  }
+}
