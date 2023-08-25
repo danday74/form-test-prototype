@@ -35,7 +35,7 @@ export class CssFiltersComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.fixUnits()
-    this.changeFilter(this.filter)
+    this.doChangeFilter(this.filter)
     this.applyFilters()
   }
 
@@ -52,6 +52,16 @@ export class CssFiltersComponent implements OnInit, OnChanges {
     this.applyFilters()
   }
 
+  changeFilter(filter: TCssFilter) {
+    this.closeDialog()
+    this.doChangeFilter(filter)
+  }
+
+  sliderUpdateFilterValue(value: number) {
+    this.filters[this.filter] = value
+    this.applyFilters()
+  }
+
   resetFilter() {
     this.filters[this.filter] = defaultCssFilters[this.filter]
     this.applyFilters()
@@ -60,16 +70,6 @@ export class CssFiltersComponent implements OnInit, OnChanges {
   resetAll() {
     this.closeDialog()
     this.filters = cloneDeep(defaultCssFilters)
-    this.applyFilters()
-  }
-
-  updateFilter(filter: TCssFilter) {
-    this.closeDialog()
-    this.changeFilter(filter)
-  }
-
-  sliderUpdateFilterValue(value: number) {
-    this.filters[this.filter] = value
     this.applyFilters()
   }
 
@@ -87,7 +87,7 @@ export class CssFiltersComponent implements OnInit, OnChanges {
     this.storageService.setItem(csfStorageKeys.filters, this.filters)
   }
 
-  private changeFilter(filter: TCssFilter) {
+  private doChangeFilter(filter: TCssFilter) {
     this.filter = filter
     this.setMinMax()
     this.storageService.setItem(csfStorageKeys.filter, filter)

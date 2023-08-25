@@ -17,6 +17,6 @@
 
 <ng-container *ngIf="showDialog">
   <app-css-filters-dialog [width]="width" [filters]="filters" [filter]="filter" [order]="order"
-                          (changeFilter)="updateFilter($event)" (changeOrder)="updateOrder($event)" (resetAll)="resetAll()">
+                          (changeFilter)="changeFilter($event)" (changeOrder)="updateOrder($event)" (resetAll)="resetAll()">
   </app-css-filters-dialog>
 </ng-container>
