@@ -22,7 +22,7 @@ export class CssFiltersComponent implements OnInit, OnChanges {
 
   filters: ICssFilters = this.storageService.getItem(csfStorageKeys.filters, cloneDeep(defaultCssFilters))
   filter: TCssFilter = this.storageService.getItem(csfStorageKeys.filter, defaultCssFiltersOrder[0])
-  private order: TCssFilter[] = this.storageService.getItem(csfStorageKeys.order, defaultCssFiltersOrder)
+  order: TCssFilter[] = this.storageService.getItem(csfStorageKeys.order, cloneDeep(defaultCssFiltersOrder))
 
   private readonly closeOnClick = false
 
@@ -47,12 +47,28 @@ export class CssFiltersComponent implements OnInit, OnChanges {
     this.showDialog = !this.showDialog
   }
 
+  updateOrder(order: TCssFilter[]) {
+    this.order = order
+    this.applyFilters()
+  }
+
   resetFilter() {
     this.filters[this.filter] = defaultCssFilters[this.filter]
     this.applyFilters()
   }
 
-  sliderUpdateFilter(value: number) {
+  resetAll() {
+    this.closeDialog()
+    this.filters = cloneDeep(defaultCssFilters)
+    this.applyFilters()
+  }
+
+  updateFilter(filter: TCssFilter) {
+    this.closeDialog()
+    this.changeFilter(filter)
+  }
+
+  sliderUpdateFilterValue(value: number) {
     this.filters[this.filter] = value
     this.applyFilters()
   }
@@ -67,12 +83,14 @@ export class CssFiltersComponent implements OnInit, OnChanges {
     const html: HTMLHtmlElement = document.querySelector('html')
     html.style.setProperty('filter', filter)
 
+    this.storageService.setItem(csfStorageKeys.order, this.order)
     this.storageService.setItem(csfStorageKeys.filters, this.filters)
   }
 
   private changeFilter(filter: TCssFilter) {
     this.filter = filter
     this.setMinMax()
+    this.storageService.setItem(csfStorageKeys.filter, filter)
   }
 
   private setMinMax() {
