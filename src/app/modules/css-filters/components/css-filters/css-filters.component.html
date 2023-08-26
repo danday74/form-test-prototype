@@ -1,6 +1,8 @@
 <div class="css-filters" [style.width]="width">
   <div class="css-filter">
-    <label for="active-filter" class="form-label">{{ filter | titlecase }} {{ filters[filter].value }}%</label>
+    <label for="active-filter" class="form-label">
+      <span>{{ filter | titlecase }} {{ filters[filter].value + filters[filter].uom.displayUnit }}</span>
+    </label>
     <input id="active-filter" type="range" class="form-range" [min]="min" [max]="max"
            [ngModel]="filters[filter].value" (ngModelChange)="sliderUpdateFilterValue($event)">
   </div>

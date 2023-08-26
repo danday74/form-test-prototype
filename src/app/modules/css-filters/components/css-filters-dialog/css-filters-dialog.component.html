@@ -14,14 +14,14 @@
 
       <div class="item-value">
         <ng-container *appVar="item.value.value - defaultCssFilters[item.key].value as diff">
-          <span *ngIf="diff > 0" class="diff" [title]="diff + '% up on default value'">
+          <span *ngIf="diff > 0" class="diff" [title]="diff + item.value.uom.displayUnit + ' up on default value'">
             <span class="material-icons-round">arrow_drop_up</span>
           </span>
-          <span *ngIf="diff < 0" class="diff" [title]="(diff | abs) + '% down on default value'">
+          <span *ngIf="diff < 0" class="diff" [title]="(diff | abs) + item.value.uom.displayUnit + ' down on default value'">
             <span class="material-icons-round">arrow_drop_down</span>
           </span>
         </ng-container>
-        <span>{{ item.value.value }}%</span>
+        <span>{{ item.value.value + item.value.uom.displayUnit }}</span>
       </div>
 
     </li>
