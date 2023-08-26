@@ -7,7 +7,7 @@ import { StorageService } from '../../../../services/storage.service'
 import { fixUnits } from 'src/app/utils/string-utils'
 import { csfStorageKeys } from '../../data/csf-storage-keys'
 import { ICssFilter } from '../../../../interfaces/i-css-filter'
-import { getCsfOrder } from '../../utils/get-order'
+import { getCsfOrder } from '../../utils/get-csf-order'
 import { throttleDecorator } from '../../../../decorators/throttle-decorator'
 
 @Component({

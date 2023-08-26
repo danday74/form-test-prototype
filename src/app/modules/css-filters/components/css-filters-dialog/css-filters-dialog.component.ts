@@ -7,7 +7,7 @@ import { StorageService } from '../../../../services/storage.service'
 import Sortable from 'sortablejs'
 import { csfStorageKeys } from '../../data/csf-storage-keys'
 import { ICssFilter } from '../../../../interfaces/i-css-filter'
-import { getCsfOrder } from '../../utils/get-order'
+import { getCsfOrder } from '../../utils/get-csf-order'
 
 @Component({
   selector: 'app-css-filters-dialog',
