@@ -6,4 +6,8 @@ export interface ICssFilter {
   value: number
   order: number
   uom: ICsfUom
+  min: number
+  max: number
+  step: number
+  dp: number
 }

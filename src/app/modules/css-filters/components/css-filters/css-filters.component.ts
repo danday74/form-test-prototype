@@ -99,30 +99,9 @@ export class CssFiltersComponent implements OnInit, OnChanges {
 
   private doChangeFilter(filter: TCssFilter) {
     this.filter = filter
-    this.setMinMax()
+    this.min = this.filters[this.filter].min
+    this.max = this.filters[this.filter].max
     this.storageService.setItem(csfStorageKeys.filter, filter)
-  }
-
-  private setMinMax() {
-    if (this.filter === 'brightness' || this.filter === 'contrast') {
-      this.min = 20
-      this.max = 200
-    } else if (this.filter === 'saturate') {
-      this.min = 0
-      this.max = 200
-    } else if (this.filter === 'opacity') {
-      this.min = 20
-      this.max = 100
-    } else if (this.filter === 'blur') {
-      this.min = 0
-      this.max = 10
-    } else if (this.filter === 'hue-rotate') {
-      this.min = 0
-      this.max = 360
-    } else {
-      this.min = 0
-      this.max = 100
-    }
   }
 
   private closeDialog(force = false) {
