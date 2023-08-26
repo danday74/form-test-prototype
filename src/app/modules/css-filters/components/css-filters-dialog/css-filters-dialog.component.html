@@ -9,19 +9,22 @@
         <button class="btn css-filters-handle" (click)="noop($event)">
           <span class="material-icons-round">drag_handle</span>
         </button>
-        <span class="item-text">{{ item.key | titlecase }}</span>
+        <span class="item-text">{{ item.key | case: 'start' }}</span>
       </div>
 
       <div class="item-value">
         <ng-container *appVar="item.value.value - defaultCssFilters[item.key].value as diff">
-          <span *ngIf="diff > 0" class="diff" [title]="diff + item.value.uom.displayUnit + ' up on default value'">
+          <span *ngIf="diff > 0" class="diff"
+                [title]="(diff | number: '1.' + item.value.dp) + item.value.uom.displayUnit + ' up on default'">
             <span class="material-icons-round">arrow_drop_up</span>
           </span>
-          <span *ngIf="diff < 0" class="diff" [title]="(diff | abs) + item.value.uom.displayUnit + ' down on default value'">
+          <span *ngIf="diff < 0" class="diff"
+                [title]="(diff | abs | number: '1.' + item.value.dp) + item.value.uom.displayUnit + ' down on default'">
             <span class="material-icons-round">arrow_drop_down</span>
           </span>
         </ng-container>
-        <span>{{ item.value.value + item.value.uom.displayUnit }}</span>
+        <span>{{ item.value.value | number: '1.' + item.value.dp }}</span>
+        <span>{{ item.value.uom.displayUnit }}</span>
       </div>
 
     </li>
