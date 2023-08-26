@@ -2,11 +2,13 @@ import { Component, ElementRef, HostListener, Input, OnChanges, OnInit, SimpleCh
 import { ICssFilters } from '../../../../interfaces/i-css-filters'
 import { TCssFilter } from '../../../../types/t-css-filter'
 import { defaultCssFilters } from '../../data/default-css-filters'
-import { cloneDeep } from 'lodash-es'
+import { cloneDeep, findKey, keys, reduce } from 'lodash-es'
 import { StorageService } from '../../../../services/storage.service'
 import { fixUnits } from 'src/app/utils/string-utils'
-import { defaultCssFiltersOrder } from '../../data/default-css-filters-order'
 import { csfStorageKeys } from '../../data/csf-storage-keys'
+import { ICssFilter } from '../../../../interfaces/i-css-filter'
+import { getCsfOrder } from '../../utils/get-order'
+import { throttleDecorator } from '../../../../decorators/throttle-decorator'
 
 @Component({
   selector: 'app-css-filters',
@@ -21,8 +23,7 @@ export class CssFiltersComponent implements OnInit, OnChanges {
   showDialog = false
 
   filters: ICssFilters = this.storageService.getItem(csfStorageKeys.filters, cloneDeep(defaultCssFilters))
-  filter: TCssFilter = this.storageService.getItem(csfStorageKeys.filter, defaultCssFiltersOrder[0])
-  order: TCssFilter[] = this.storageService.getItem(csfStorageKeys.order, cloneDeep(defaultCssFiltersOrder))
+  filter: TCssFilter = this.storageService.getItem(csfStorageKeys.filter, findKey(defaultCssFilters, { order: 0 }))
 
   private readonly closeOnClick = false
 
@@ -48,7 +49,11 @@ export class CssFiltersComponent implements OnInit, OnChanges {
   }
 
   updateOrder(order: TCssFilter[]) {
-    this.order = order
+    this.filters = reduce(this.filters, (acc: ICssFilters, _v: ICssFilter, k: string) => {
+      const filter: TCssFilter = k as TCssFilter
+      acc[filter].order = order.indexOf(filter)
+      return acc
+    }, this.filters)
     this.applyFilters()
   }
 
@@ -58,37 +63,42 @@ export class CssFiltersComponent implements OnInit, OnChanges {
   }
 
   sliderUpdateFilterValue(value: number) {
-    this.filters[this.filter] = value
+    this.filters[this.filter].value = value
     this.applyFilters()
   }
 
   resetFilter() {
-    this.filters[this.filter] = defaultCssFilters[this.filter]
+    this.filters[this.filter].value = defaultCssFilters[this.filter].value
     this.applyFilters()
   }
 
   resetAll() {
     this.closeDialog()
-    this.filters = cloneDeep(defaultCssFilters)
+    for (const filter of keys(this.filters)) {
+      const fltr: TCssFilter = filter as TCssFilter
+      this.filters[fltr].value = defaultCssFilters[fltr].value
+    }
     this.applyFilters()
   }
 
+  @throttleDecorator(50, { leading: true, trailing: true })
   private applyFilters() {
 
-    const filter: string = this.order.reduce((acc: string, fltr: TCssFilter) => {
+    const order: TCssFilter[] = getCsfOrder(this.filters)
+
+    const filter: string = order.reduce((acc: string, fltr: TCssFilter) => {
 
       let unit = '%'
       if (fltr === 'blur') unit = 'px'
       if (fltr === 'hue-rotate') unit = 'deg'
 
-      acc += `${fltr}(${this.filters[fltr]}${unit}) `
+      acc += `${fltr}(${this.filters[fltr].value}${unit}) `
       return acc
     }, '').trim()
 
     const html: HTMLHtmlElement = document.querySelector('html')
     html.style.setProperty('filter', filter)
 
-    this.storageService.setItem(csfStorageKeys.order, this.order)
     this.storageService.setItem(csfStorageKeys.filters, this.filters)
   }
 
