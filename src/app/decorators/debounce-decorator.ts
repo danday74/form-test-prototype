@@ -5,7 +5,7 @@ import { debounce, DebounceSettings } from 'lodash-es'
 // example: decorate method with ... @debounceDecorator(250, { leading: true, trailing: false })
 // noinspection JSUnusedGlobalSymbols
 export const debounceDecorator = (waitMs = 0, options: DebounceSettings = { leading: false, trailing: true }) => {
-  return (target: any, propertyKey: string, descriptor: PropertyDescriptor) => {
+  return (_target: any, _propertyKey: string, descriptor: PropertyDescriptor) => {
     const map = new WeakMap()
     const originalMethod = descriptor.value
     descriptor.value = function (...args: any[]) {

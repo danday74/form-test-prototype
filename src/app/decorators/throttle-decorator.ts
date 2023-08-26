@@ -5,7 +5,7 @@ import { throttle, ThrottleSettings } from 'lodash-es'
 // example: decorate method with ... @throttleDecorator(50, { leading: true, trailing: true })
 // noinspection JSUnusedGlobalSymbols
 export const throttleDecorator = (waitMs = 0, options: ThrottleSettings = { leading: true, trailing: true }) => {
-  return (target: any, propertyKey: string, descriptor: PropertyDescriptor) => {
+  return (_target: any, _propertyKey: string, descriptor: PropertyDescriptor) => {
     const map = new WeakMap()
     const originalMethod = descriptor.value
     descriptor.value = function (...args: any[]) {
