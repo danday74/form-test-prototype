@@ -75,9 +75,8 @@ export class CssFiltersComponent implements OnInit, OnChanges {
 
   resetAll() {
     this.closeDialog()
-    for (const filter of keys(this.filters)) {
-      const fltr: TCssFilter = filter as TCssFilter
-      this.filters[fltr].value = defaultCssFilters[fltr].value
+    for (const filter of keys(this.filters) as TCssFilter[]) {
+      this.filters[filter].value = defaultCssFilters[filter].value
     }
     this.applyFilters()
   }
