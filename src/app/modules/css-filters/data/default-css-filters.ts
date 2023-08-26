@@ -55,4 +55,4 @@ for (const [idx, filter] of keys(cssFilters).entries()) {
   cssFilters[fltr].order = idx
 }
 
-export const defaultCssFilters: ICssFilters = cssFilters
+export const defaultCssFilters: ICssFilters = Object.freeze(cssFilters)
