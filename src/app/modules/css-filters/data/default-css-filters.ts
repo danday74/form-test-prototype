@@ -11,8 +11,8 @@ const cssFilters: ICssFilters = {
     uom: csfUoms.percent,
     min: 20,
     max: 200,
-    step: null,
-    dp: null
+    step: 1,
+    dp: 0
   },
   contrast: {
     name: 'contrast',
@@ -21,8 +21,8 @@ const cssFilters: ICssFilters = {
     uom: csfUoms.percent,
     min: 20,
     max: 200,
-    step: null,
-    dp: null
+    step: 1,
+    dp: 0
   },
   grayscale: {
     name: 'grayscale',
@@ -31,8 +31,8 @@ const cssFilters: ICssFilters = {
     uom: csfUoms.percent,
     min: 0,
     max: 100,
-    step: null,
-    dp: null
+    step: 1,
+    dp: 0
   },
   saturate: {
     name: 'saturate',
@@ -41,8 +41,8 @@ const cssFilters: ICssFilters = {
     uom: csfUoms.percent,
     min: 0,
     max: 200,
-    step: null,
-    dp: null
+    step: 1,
+    dp: 0
   },
   sepia: {
     name: 'sepia',
@@ -51,8 +51,8 @@ const cssFilters: ICssFilters = {
     uom: csfUoms.percent,
     min: 0,
     max: 100,
-    step: null,
-    dp: null
+    step: 1,
+    dp: 0
   },
   'hue-rotate': {
     name: 'hue-rotate',
@@ -61,8 +61,8 @@ const cssFilters: ICssFilters = {
     uom: csfUoms.degrees,
     min: 0,
     max: 360,
-    step: null,
-    dp: null
+    step: 1,
+    dp: 0
   },
   invert: {
     name: 'invert',
@@ -71,8 +71,8 @@ const cssFilters: ICssFilters = {
     uom: csfUoms.percent,
     min: 0,
     max: 100,
-    step: null,
-    dp: null
+    step: 1,
+    dp: 0
   },
   blur: {
     name: 'blur',
@@ -81,8 +81,8 @@ const cssFilters: ICssFilters = {
     uom: csfUoms.pixels,
     min: 0,
     max: 10,
-    step: null,
-    dp: null
+    step: 0.1,
+    dp: 1
   },
   opacity: {
     name: 'opacity',
@@ -91,8 +91,8 @@ const cssFilters: ICssFilters = {
     uom: csfUoms.percent,
     min: 20,
     max: 100,
-    step: null,
-    dp: null
+    step: 1,
+    dp: 0
   }
 }
 
