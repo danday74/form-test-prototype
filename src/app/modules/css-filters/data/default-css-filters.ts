@@ -1,4 +1,4 @@
-import { ICssFilters } from '../../../interfaces/i-css-filters'
+import { ICssFilters } from '../interfaces/i-css-filters'
 import { keys } from 'lodash-es'
 import { TCssFilter } from '../../../types/t-css-filter'
 

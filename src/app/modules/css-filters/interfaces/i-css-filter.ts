@@ -1,4 +1,4 @@
-import { TCssFilter } from '../types/t-css-filter'
+import { TCssFilter } from '../../../types/t-css-filter'
 
 export interface ICssFilter {
   name: TCssFilter
