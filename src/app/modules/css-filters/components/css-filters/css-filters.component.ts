@@ -87,12 +87,7 @@ export class CssFiltersComponent implements OnInit, OnChanges {
     const order: TCssFilter[] = getCsfOrder(this.filters)
 
     const filter: string = order.reduce((acc: string, fltr: TCssFilter) => {
-
-      let unit = '%'
-      if (fltr === 'blur') unit = 'px'
-      if (fltr === 'hue-rotate') unit = 'deg'
-
-      acc += `${fltr}(${this.filters[fltr].value}${unit}) `
+      acc += `${fltr}(${this.filters[fltr].value}${this.filters[fltr].uom.unit}) `
       return acc
     }, '').trim()
 
