@@ -1,9 +1,12 @@
 <div class="css-filters" [style.width]="width">
   <div class="css-filter">
     <label for="active-filter" class="form-label">
-      <span>{{ filter | titlecase }} {{ filters[filter].value + filters[filter].uom.displayUnit }}</span>
+      <span>{{ filter | case: 'start' }}</span>
+      <span>&nbsp;</span>
+      <span>{{ filters[filter].value | number: '1.' + filters[filter].dp }}</span>
+      <span>{{ filters[filter].uom.displayUnit }}</span>
     </label>
-    <input id="active-filter" type="range" class="form-range" [min]="min" [max]="max"
+    <input id="active-filter" type="range" class="form-range" [min]="min" [max]="max" [step]="step"
            [ngModel]="filters[filter].value" (ngModelChange)="sliderUpdateFilterValue($event)">
   </div>
 

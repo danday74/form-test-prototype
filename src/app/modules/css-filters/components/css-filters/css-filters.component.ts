@@ -20,6 +20,7 @@ export class CssFiltersComponent implements OnInit, OnChanges {
 
   min: number
   max: number
+  step: number
   showDialog = false
 
   filters: ICssFilters = this.storageService.getItem(csfStorageKeys.filters, cloneDeep(defaultCssFilters))
@@ -101,6 +102,7 @@ export class CssFiltersComponent implements OnInit, OnChanges {
     this.filter = filter
     this.min = this.filters[this.filter].min
     this.max = this.filters[this.filter].max
+    this.step = this.filters[this.filter].step
     this.storageService.setItem(csfStorageKeys.filter, filter)
   }
 
