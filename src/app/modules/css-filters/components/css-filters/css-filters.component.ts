@@ -1,6 +1,6 @@
 import { Component, ElementRef, HostListener, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core'
 import { ICssFilters } from '../../interfaces/i-css-filters'
-import { TCssFilter } from '../../../../types/t-css-filter'
+import { TCssFilter } from '../../types/t-css-filter'
 import { defaultCssFilters } from '../../data/default-css-filters'
 import { cloneDeep, findKey, keys, reduce } from 'lodash-es'
 import { StorageService } from '../../../../services/storage.service'

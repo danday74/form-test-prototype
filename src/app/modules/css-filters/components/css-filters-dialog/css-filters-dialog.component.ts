@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core'
 import { KeyValue } from '@angular/common'
-import { TCssFilter } from '../../../../types/t-css-filter'
+import { TCssFilter } from '../../types/t-css-filter'
 import { ICssFilters } from '../../interfaces/i-css-filters'
 import { defaultCssFilters } from '../../data/default-css-filters'
 import { StorageService } from '../../../../services/storage.service'
