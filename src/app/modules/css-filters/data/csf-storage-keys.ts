@@ -6,6 +6,5 @@ const prefix: string = appConfig.theme.prefix
 export const csfStorageKeys: ICsfStorageKeys = {
   filter: `${prefix}-css-filter`,
   filters: `${prefix}-css-filters`,
-  dismissed: `${prefix}-css-filters-dismissed`,
-  order: `${prefix}-css-filters-order`
+  dismissed: `${prefix}-css-filters-dismissed`
 }
