@@ -2,7 +2,7 @@
   <ul #sortableRef>
     <!--suppress TypeScriptValidateTypes -->
     <li *ngFor="let item of filters | keyvalue: orderFunc; trackBy: trackByFunc"
-        [attr.data-id]="item.key" [class.active]="item.key === filter" [class.modified]="item.value !== defaultCssFilters[item.key]"
+        [attr.data-id]="item.key" [class.active]="item.key === filter"
         (click)="onChangeFilter(item.key)">
 
       <div class="item-key">
@@ -13,7 +13,7 @@
       </div>
 
       <div class="item-value">
-        <ng-container *appVar="item.value - defaultCssFilters[item.key] as diff">
+        <ng-container *appVar="item.value.value - defaultCssFilters[item.key].value as diff">
           <span *ngIf="diff > 0" class="diff" [title]="diff + '% up on default value'">
             <span class="material-icons-round">arrow_drop_up</span>
           </span>
@@ -21,7 +21,7 @@
             <span class="material-icons-round">arrow_drop_down</span>
           </span>
         </ng-container>
-        <span>{{ item.value }}%</span>
+        <span>{{ item.value.value }}%</span>
       </div>
 
     </li>
