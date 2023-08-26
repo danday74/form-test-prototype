@@ -6,6 +6,8 @@ import { defaultCssFilters } from '../../data/default-css-filters'
 import { StorageService } from '../../../../services/storage.service'
 import Sortable from 'sortablejs'
 import { csfStorageKeys } from '../../data/csf-storage-keys'
+import { ICssFilter } from '../../../../interfaces/i-css-filter'
+import { getCsfOrder } from '../../utils/get-order'
 
 @Component({
   selector: 'app-css-filters-dialog',
@@ -16,7 +18,6 @@ export class CssFiltersDialogComponent implements OnInit, AfterViewInit, OnDestr
   @Input() width: string
   @Input() filters: ICssFilters
   @Input() filter: TCssFilter
-  @Input() order: TCssFilter[]
 
   @Output() updateOrder = new EventEmitter<TCssFilter[]>()
   @Output() changeFilter = new EventEmitter<TCssFilter>()
@@ -43,7 +44,7 @@ export class CssFiltersDialogComponent implements OnInit, AfterViewInit, OnDestr
       dragClass: 'css-filters-drag',
       animation: 200,
       store: {
-        get: (/* sortable: Sortable */) => this.order,
+        get: (/* sortable: Sortable */) => getCsfOrder(this.filters),
         set: this.onUpdateOrder
       }
     })
@@ -54,8 +55,8 @@ export class CssFiltersDialogComponent implements OnInit, AfterViewInit, OnDestr
     this.sortable = null
   }
 
-  onChangeFilter(filter: TCssFilter) {
-    this.changeFilter.emit(filter)
+  onChangeFilter(filter: string) {
+    this.changeFilter.emit(filter as TCssFilter)
   }
 
   onResetAll() {
@@ -67,13 +68,11 @@ export class CssFiltersDialogComponent implements OnInit, AfterViewInit, OnDestr
     this.storageService.setItem(csfStorageKeys.dismissed, true)
   }
 
-  orderFunc = (a: KeyValue<TCssFilter, number>, b: KeyValue<TCssFilter, number>): number => {
-    const orderA: number = this.order.indexOf(a.key)
-    const orderB: number = this.order.indexOf(b.key)
-    return orderA - orderB
+  orderFunc = (a: KeyValue<TCssFilter, ICssFilter>, b: KeyValue<TCssFilter, ICssFilter>): number => {
+    return a.value.order - b.value.order
   }
 
-  trackByFunc(_idx: number, item: KeyValue<TCssFilter, number>): TCssFilter {
+  trackByFunc(_idx: number, item: KeyValue<TCssFilter, ICssFilter>): TCssFilter {
     return item.key
   }
 
