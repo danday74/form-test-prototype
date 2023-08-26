@@ -1,4 +1,4 @@
-import { IFormErrors } from '../../../interfaces/i-form-errors'
+import { IFormErrors } from '../interfaces/i-form-errors'
 import { ErrorRequiredComponent } from '../components/error-required/error-required.component'
 import { ErrorMinlengthComponent } from '../components/error-minlength/error-minlength.component'
 

@@ -11,7 +11,7 @@ import {
 } from '@angular/core'
 import { NgModel } from '@angular/forms'
 import { v4 } from 'uuid'
-import { IFormErrors } from '../../../../interfaces/i-form-errors'
+import { IFormErrors } from '../../../form-errors/interfaces/i-form-errors'
 import { fixUnits } from '../../../../utils/string-utils'
 import { TFormControl } from '../../types/t-form-control'
 

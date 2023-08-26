@@ -13,10 +13,10 @@ import {
 } from '@angular/core'
 import { get, keys, merge } from 'lodash-es'
 import { NgModel } from '@angular/forms'
-import { IFormErrors } from '../../../../interfaces/i-form-errors'
+import { IFormErrors } from '../../interfaces/i-form-errors'
 import { defaultFormErrors } from '../../data/default-form-errors'
-import { IFormError } from '../../../../interfaces/i-form-error'
-import { IFormErrorComponent } from '../../../../interfaces/i-form-error-component'
+import { IFormError } from '../../interfaces/i-form-error'
+import { IFormErrorComponent } from '../../interfaces/i-form-error-component'
 import { takeUntil } from 'rxjs/operators'
 import { DestroyerComponent } from '../../../app-core/components/destroyer.component'
 
