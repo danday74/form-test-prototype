@@ -2,7 +2,7 @@ import { debounce, DebounceSettings } from 'lodash-es'
 
 // https://engineering.datorama.com/be-aware-of-the-debounce-decorator-6fb24a6d8d5
 
-// example: decorate method with ... @debounceDecorator(250, { leading: true, trailing: false })
+// example: decorate method with ... @debounceDecorator(250, { leading: false, trailing: true })
 // noinspection JSUnusedGlobalSymbols
 export const debounceDecorator = (waitMs = 0, options: DebounceSettings = { leading: false, trailing: true }) => {
   return (_target: any, _propertyKey: string, descriptor: PropertyDescriptor) => {
