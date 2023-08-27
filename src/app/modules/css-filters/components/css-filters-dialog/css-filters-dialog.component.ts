@@ -18,7 +18,10 @@ export class CssFiltersDialogComponent implements OnInit, AfterViewInit, OnDestr
   @Input() width: string
   @Input() filters: ICssFilters
   @Input() filter: TCssFilter
+  @Input() target: boolean
+  @Input() targetValue: boolean
 
+  @Output() updateTarget = new EventEmitter<boolean>()
   @Output() updateOrder = new EventEmitter<TCssFilter[]>()
   @Output() changeFilter = new EventEmitter<TCssFilter>()
   @Output() resetAll = new EventEmitter<void>()
@@ -79,6 +82,10 @@ export class CssFiltersDialogComponent implements OnInit, AfterViewInit, OnDestr
   noop(evt: MouseEvent) {
     evt.preventDefault()
     evt.stopPropagation()
+  }
+
+  onUpdateTarget(targetValue: boolean) {
+    this.updateTarget.emit(targetValue)
   }
 
   private onUpdateOrder(sortable: Sortable) {
