@@ -12,7 +12,8 @@ const cssFilters: ICssFilters = {
     min: 20,
     max: 200,
     step: 1,
-    dp: 0
+    dp: 0,
+    enabled: true
   },
   contrast: {
     name: 'contrast',
@@ -22,7 +23,8 @@ const cssFilters: ICssFilters = {
     min: 20,
     max: 200,
     step: 1,
-    dp: 0
+    dp: 0,
+    enabled: true
   },
   grayscale: {
     name: 'grayscale',
@@ -32,7 +34,8 @@ const cssFilters: ICssFilters = {
     min: 0,
     max: 100,
     step: 1,
-    dp: 0
+    dp: 0,
+    enabled: true
   },
   saturate: {
     name: 'saturate',
@@ -42,7 +45,8 @@ const cssFilters: ICssFilters = {
     min: 0,
     max: 200,
     step: 1,
-    dp: 0
+    dp: 0,
+    enabled: true
   },
   sepia: {
     name: 'sepia',
@@ -52,7 +56,8 @@ const cssFilters: ICssFilters = {
     min: 0,
     max: 100,
     step: 1,
-    dp: 0
+    dp: 0,
+    enabled: true
   },
   'hue-rotate': {
     name: 'hue-rotate',
@@ -62,7 +67,8 @@ const cssFilters: ICssFilters = {
     min: 0,
     max: 360,
     step: 1,
-    dp: 0
+    dp: 0,
+    enabled: true
   },
   invert: {
     name: 'invert',
@@ -72,7 +78,8 @@ const cssFilters: ICssFilters = {
     min: 0,
     max: 100,
     step: 1,
-    dp: 0
+    dp: 0,
+    enabled: true
   },
   blur: {
     name: 'blur',
@@ -82,7 +89,8 @@ const cssFilters: ICssFilters = {
     min: 0,
     max: 10,
     step: 0.1,
-    dp: 1
+    dp: 1,
+    enabled: true
   },
   opacity: {
     name: 'opacity',
@@ -92,7 +100,8 @@ const cssFilters: ICssFilters = {
     min: 20,
     max: 100,
     step: 1,
-    dp: 0
+    dp: 0,
+    enabled: true
   }
 }
 
