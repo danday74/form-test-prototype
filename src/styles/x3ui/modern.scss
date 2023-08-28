@@ -13,10 +13,15 @@ html.x3ui-modern {
     @include buttonPrimaryBackground;
     @include buttonSquareCorners;
     @include checkboxColors;
-    @include inputBackground($lightBgBlue);
     @include inputBorderStatus;
     @include inputSquareCorners;
     @include labelFocus;
     @include labelRequired;
+  }
+
+  &[data-bs-theme='light'] {
+    form.x3ui-form {
+      @include inputBackground($lightBgBlue);
+    }
   }
 }

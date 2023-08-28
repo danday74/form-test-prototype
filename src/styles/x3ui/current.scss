@@ -6,8 +6,13 @@
 html.x3ui-current {
   form.x3ui-form {
     @include buttonSquareCorners;
-    @include inputBackground(#fff);
     @include inputNoBoxShadow;
     @include inputSquareCorners;
+  }
+
+  &[data-bs-theme='light'] {
+    form.x3ui-form {
+      @include inputBackground(#fff);
+    }
   }
 }

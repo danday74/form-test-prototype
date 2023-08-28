@@ -4,8 +4,13 @@
 
 html.x3ui-bootstrap {
   form.x3ui-form {
-    @include inputBackground;
     @include inputBorderStatus;
     @include labelRequired;
+  }
+
+  &[data-bs-theme='light'] {
+    form.x3ui-form {
+      @include inputBackground;
+    }
   }
 }
