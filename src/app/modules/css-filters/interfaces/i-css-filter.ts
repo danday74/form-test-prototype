@@ -10,4 +10,5 @@ export interface ICssFilter {
   max: number
   step: number
   dp: number
+  enabled: boolean
 }
