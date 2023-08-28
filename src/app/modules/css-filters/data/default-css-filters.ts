@@ -4,6 +4,17 @@ import { TCssFilter } from '../types/t-css-filter'
 import { csfUoms } from './csf-uoms'
 
 const cssFilters: ICssFilters = {
+  blur: {
+    name: 'blur',
+    value: 0,
+    order: null,
+    uom: csfUoms.pixels,
+    min: 0,
+    max: 10,
+    step: 0.1,
+    dp: 1,
+    enabled: true
+  },
   brightness: {
     name: 'brightness',
     value: 100,
@@ -37,28 +48,6 @@ const cssFilters: ICssFilters = {
     dp: 0,
     enabled: true
   },
-  saturate: {
-    name: 'saturate',
-    value: 100,
-    order: null,
-    uom: csfUoms.percent,
-    min: 0,
-    max: 200,
-    step: 1,
-    dp: 0,
-    enabled: true
-  },
-  sepia: {
-    name: 'sepia',
-    value: 0,
-    order: null,
-    uom: csfUoms.percent,
-    min: 0,
-    max: 100,
-    step: 1,
-    dp: 0,
-    enabled: true
-  },
   'hue-rotate': {
     name: 'hue-rotate',
     value: 0,
@@ -81,23 +70,34 @@ const cssFilters: ICssFilters = {
     dp: 0,
     enabled: true
   },
-  blur: {
-    name: 'blur',
-    value: 0,
-    order: null,
-    uom: csfUoms.pixels,
-    min: 0,
-    max: 10,
-    step: 0.1,
-    dp: 1,
-    enabled: true
-  },
   opacity: {
     name: 'opacity',
     value: 100,
     order: null,
     uom: csfUoms.percent,
     min: 20,
+    max: 100,
+    step: 1,
+    dp: 0,
+    enabled: true
+  },
+  saturate: {
+    name: 'saturate',
+    value: 100,
+    order: null,
+    uom: csfUoms.percent,
+    min: 0,
+    max: 200,
+    step: 1,
+    dp: 0,
+    enabled: true
+  },
+  sepia: {
+    name: 'sepia',
+    value: 0,
+    order: null,
+    uom: csfUoms.percent,
+    min: 0,
     max: 100,
     step: 1,
     dp: 0,
