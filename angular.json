@@ -32,7 +32,6 @@
             ],
             "styles": [
               "node_modules/material-icons/iconfont/material-icons.css",
-              "src/assets/themes/init-theme.min.css",
               "src/styles.scss"
             ],
             "scripts": [
@@ -104,7 +103,6 @@
             ],
             "styles": [
               "node_modules/material-icons/iconfont/material-icons.css",
-              "src/assets/themes/init-theme.min.css",
               "src/styles.scss"
             ],
             "scripts": [
