@@ -19,13 +19,14 @@ import { differenceInMilliseconds } from 'date-fns'
 export class CssFiltersComponent implements OnInit, AfterViewInit, OnChanges, OnDestroy {
   @Input() width = '100%'
   @Input() target = false // enable targeting?
+  @Input() xxx: TCssFilter[] = ['blur', 'brightness', 'contrast', 'grayscale', 'hue-rotate', 'invert', 'opacity', 'saturate', 'sepia']
 
   min: number
   max: number
   step: number
   showDialog = false
 
-  filters: ICssFilters = this.storageService.getItem(csfStorageKeys.filters, cloneDeep(defaultCssFilters))
+  filterz: ICssFilters = this.storageService.getItem(csfStorageKeys.filters, cloneDeep(defaultCssFilters))
   filter: TCssFilter = this.storageService.getItem(csfStorageKeys.filter, findKey(defaultCssFilters, { order: 0 }))
   targetValue: boolean = this.storageService.getItem(csfStorageKeys.targetValue, false)
 
@@ -76,11 +77,11 @@ export class CssFiltersComponent implements OnInit, AfterViewInit, OnChanges, On
   }
 
   updateOrder(order: TCssFilter[]) {
-    this.filters = reduce(this.filters, (acc: ICssFilters, _v: ICssFilter, k: string) => {
+    this.filterz = reduce(this.filterz, (acc: ICssFilters, _v: ICssFilter, k: string) => {
       const filter: TCssFilter = k as TCssFilter
       acc[filter].order = order.indexOf(filter)
       return acc
-    }, this.filters)
+    }, this.filterz)
     this.applyFilters()
   }
 
@@ -90,19 +91,19 @@ export class CssFiltersComponent implements OnInit, AfterViewInit, OnChanges, On
   }
 
   sliderUpdateFilterValue(value: number) {
-    this.filters[this.filter].value = value
+    this.filterz[this.filter].value = value
     this.applyFilters()
   }
 
   resetFilter() {
-    this.filters[this.filter].value = defaultCssFilters[this.filter].value
+    this.filterz[this.filter].value = defaultCssFilters[this.filter].value
     this.applyFilters()
   }
 
   resetAll() {
     this.closeDialog()
-    for (const filter of keys(this.filters) as TCssFilter[]) {
-      this.filters[filter].value = defaultCssFilters[filter].value
+    for (const filter of keys(this.filterz) as TCssFilter[]) {
+      this.filterz[filter].value = defaultCssFilters[filter].value
     }
     this.applyFilters()
   }
@@ -110,16 +111,16 @@ export class CssFiltersComponent implements OnInit, AfterViewInit, OnChanges, On
   @throttleDecorator(50, { leading: true, trailing: true })
   private applyFilters() {
 
-    const order: TCssFilter[] = getCsfOrder(this.filters)
+    const order: TCssFilter[] = getCsfOrder(this.filterz)
 
     const filter: string = order.reduce((acc: string, fltr: TCssFilter) => {
-      acc += `${fltr}(${this.filters[fltr].value}${this.filters[fltr].uom.unit}) `
+      acc += `${fltr}(${this.filterz[fltr].value}${this.filterz[fltr].uom.unit}) `
       return acc
     }, '').trim()
 
     this.applyFiltersToDom(filter)
 
-    this.storageService.setItem(csfStorageKeys.filters, this.filters)
+    this.storageService.setItem(csfStorageKeys.filters, this.filterz)
     this.storageService.setItem(csfStorageKeys.targetValue, this.targetValue)
   }
 
@@ -140,9 +141,9 @@ export class CssFiltersComponent implements OnInit, AfterViewInit, OnChanges, On
 
   private doChangeFilter(filter: TCssFilter) {
     this.filter = filter
-    this.min = this.filters[this.filter].min
-    this.max = this.filters[this.filter].max
-    this.step = this.filters[this.filter].step
+    this.min = this.filterz[this.filter].min
+    this.max = this.filterz[this.filter].max
+    this.step = this.filterz[this.filter].step
     this.storageService.setItem(csfStorageKeys.filter, filter)
   }
 

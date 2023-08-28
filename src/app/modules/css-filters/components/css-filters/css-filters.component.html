@@ -3,11 +3,11 @@
     <label for="active-filter" class="form-label">
       <span>{{ filter | case: 'start' }}</span>
       <span>&nbsp;</span>
-      <span>{{ filters[filter].value | number: '1.' + filters[filter].dp }}</span>
-      <span>{{ filters[filter].uom.displayUnit }}</span>
+      <span>{{ filterz[filter].value | number: '1.' + filterz[filter].dp }}</span>
+      <span>{{ filterz[filter].uom.displayUnit }}</span>
     </label>
     <input id="active-filter" type="range" class="form-range" [min]="min" [max]="max" [step]="step"
-           [ngModel]="filters[filter].value" (ngModelChange)="sliderUpdateFilterValue($event)">
+           [ngModel]="filterz[filter].value" (ngModelChange)="sliderUpdateFilterValue($event)">
   </div>
 
   <div class="buttons">
@@ -21,7 +21,7 @@
 </div>
 
 <ng-container *ngIf="showDialog">
-  <app-css-filters-dialog [width]="width" [filters]="filters" [filter]="filter" [target]="target" [targetValue]="targetValue"
+  <app-css-filters-dialog [width]="width" [filters]="filterz" [filter]="filter" [target]="target" [targetValue]="targetValue"
                           (changeFilter)="changeFilter($event)" (updateTarget)="updateTarget($event)" (updateOrder)="updateOrder($event)"
                           (resetAll)="resetAll()">
   </app-css-filters-dialog>
