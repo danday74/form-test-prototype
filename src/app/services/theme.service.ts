@@ -5,7 +5,6 @@ import { formatMe } from '../utils/string-utils'
 import { TLod } from '../types/t-lod'
 import { appConfig } from '../app-config'
 import { StorageService } from './storage.service'
-import { environment } from '../../environments/environment'
 
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
