@@ -1,13 +1,13 @@
 :host-context(:root, html[data-bs-theme='light']) {
   --grid-item-bg-color: #f7f7f7;
   --grid-item-text-color: #333;
-  --nice-car: url('assets/images/nice-car-dark.png') center no-repeat var(--grid-item-bg-color);
+  --nice-car: url('/assets/images/nice-car-dark.png') center no-repeat var(--grid-item-bg-color);
 }
 
 :host-context(html[data-bs-theme='dark']) {
   --grid-item-bg-color: #292929;
   --grid-item-text-color: #fff;
-  --nice-car: url('assets/images/nice-car-light.png') center no-repeat var(--grid-item-bg-color);
+  --nice-car: url('/assets/images/nice-car-light.png') center no-repeat var(--grid-item-bg-color);
 }
 
 .route3 {
@@ -26,7 +26,7 @@
       }
 
       &.emoji {
-        background: url('assets/images/emoji.gif') center no-repeat var(--grid-item-bg-color);
+        background: url('/assets/images/emoji.gif') center no-repeat var(--grid-item-bg-color);
         background-size: 200px 200px;
       }
 
