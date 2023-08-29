@@ -9,6 +9,14 @@
       border-radius: 5px;
       padding: 12px;
 
+      &.nice-car {
+        background: url('/assets/images/nice-car.png') center no-repeat;
+      }
+
+      &.emoji {
+        background: url('/assets/images/emoji.gif') center no-repeat;
+      }
+
       &.image {
         width: 100%;
         height: 250px;
