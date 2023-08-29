@@ -7,7 +7,10 @@
       <a routerLink="route3" routerLinkActive="active">Images</a>
     </div>
 
-    <app-css-filters width="200" [target]="true"></app-css-filters>
+    <!-------------- [filters]="['blur', 'brightness', 'contrast', 'grayscale', 'hue-rotate', 'invert', 'opacity', 'saturate', 'sepia']" -->
+    <app-css-filters width="200" [target]="true"
+                     [filters]="['brightness', 'contrast', 'sepia', 'saturate', 'grayscale', 'hue-rotate', 'invert', 'opacity', 'blur']">
+    </app-css-filters>
 
     <div class="lod-and-theme">
 
