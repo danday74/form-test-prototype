@@ -2,7 +2,7 @@ import { AfterViewInit, Component, ElementRef, HostListener, Input, OnChanges, O
 import { ICssFilters } from '../../interfaces/i-css-filters'
 import { TCssFilter } from '../../types/t-css-filter'
 import { defaultCssFilters } from '../../data/default-css-filters'
-import { cloneDeep, findKey, keys, reduce } from 'lodash-es'
+import { cloneDeep, findKey, keys, merge, reduce, uniq } from 'lodash-es'
 import { StorageService } from '../../../../services/storage.service'
 import { fixUnits } from 'src/app/utils/string-utils'
 import { csfStorageKeys } from '../../data/csf-storage-keys'
@@ -10,6 +10,7 @@ import { ICssFilter } from '../../interfaces/i-css-filter'
 import { getCsfOrder } from '../../utils/get-csf-order'
 import { throttleDecorator } from '../../../../decorators/throttle-decorator'
 import { differenceInMilliseconds } from 'date-fns'
+import { selector } from '../../../../utils/selector'
 
 @Component({
   selector: 'app-css-filters',
@@ -19,15 +20,15 @@ import { differenceInMilliseconds } from 'date-fns'
 export class CssFiltersComponent implements OnInit, AfterViewInit, OnChanges, OnDestroy {
   @Input() width = '100%'
   @Input() target = false // enable targeting?
-  @Input() xxx: TCssFilter[] = ['blur', 'brightness', 'contrast', 'grayscale', 'hue-rotate', 'invert', 'opacity', 'saturate', 'sepia']
+  @Input() filters: TCssFilter[] = ['blur', 'brightness', 'contrast', 'grayscale', 'hue-rotate', 'invert', 'opacity', 'saturate', 'sepia']
 
   min: number
   max: number
   step: number
   showDialog = false
 
-  filterz: ICssFilters = this.storageService.getItem(csfStorageKeys.filters, cloneDeep(defaultCssFilters))
-  filter: TCssFilter = this.storageService.getItem(csfStorageKeys.filter, findKey(defaultCssFilters, { order: 0 }))
+  filter: TCssFilter
+  filterz: ICssFilters
   targetValue: boolean = this.storageService.getItem(csfStorageKeys.targetValue, false)
 
   private readonly closeOnClick = false
@@ -41,6 +42,7 @@ export class CssFiltersComponent implements OnInit, AfterViewInit, OnChanges, On
   }
 
   ngOnInit() {
+    this.setFilters()
     this.fixUnits()
     this.doChangeFilter(this.filter)
     this.applyFilters()
@@ -157,6 +159,39 @@ export class CssFiltersComponent implements OnInit, AfterViewInit, OnChanges, On
 
   private fixUnits() {
     this.width = fixUnits(this.width)
+  }
+
+  private setFilters() {
+
+    this.filters = uniq(this.filters)
+    this.filters = this.filters.filter((filter: TCssFilter) => keys(defaultCssFilters).includes(filter))
+
+    if (!this.filters.length) {
+      // setting filterz and filter removes console noise
+      this.filterz = cloneDeep(defaultCssFilters)
+      this.filter = findKey(defaultCssFilters, { order: 0 }) as TCssFilter
+      throw Error(`${selector(this.ref, true)} requires at least one filter`)
+    } else {
+
+      const storageFilters: ICssFilters = this.storageService.getItem(csfStorageKeys.filters)
+      let filterz: ICssFilters = merge({}, cloneDeep(defaultCssFilters), storageFilters)
+
+      filterz = reduce(filterz, (acc: ICssFilters, _v: ICssFilter, k: string) => {
+        const filter: TCssFilter = k as TCssFilter
+        if (this.filters.includes(filter)) {
+          acc[filter].order = this.filters.indexOf(filter)
+        } else {
+          delete acc[filter]
+        }
+        return acc
+      }, filterz)
+
+      const storageFilter = this.storageService.getItem(csfStorageKeys.filter)
+      const filter: TCssFilter = this.filters.includes(storageFilter) ? storageFilter : findKey(filterz, { order: 0 })
+
+      this.filterz = filterz
+      this.filter = filter
+    }
   }
 
   private whenImagesAreReady(): Promise<string> {
