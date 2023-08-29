@@ -10,7 +10,7 @@ import { environment } from '../../environments/environment'
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
 
-  private readonly urlTemplate: string = `${environment.assets}/themes/{{theme}}-theme.min.css`
+  private readonly urlTemplate: string = `assets/themes/{{theme}}-theme.min.css`
   private readonly themeStorageKey: string = appConfig.theme.prefix
   private readonly lodStorageKey: string = `${appConfig.theme.prefix}-lod`
 
