@@ -6,8 +6,7 @@ import { IEnvironment } from './i-environment'
 
 export const environment: IEnvironment = {
   production: false,
-  name: 'default',
-  assets: '/assets'
+  name: 'default'
 }
 
 /*
