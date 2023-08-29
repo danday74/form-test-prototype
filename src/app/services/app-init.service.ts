@@ -3,17 +3,42 @@ import { ThemeService } from './theme.service'
 import { TTheme } from '../types/t-theme'
 import { TLod } from '../types/t-lod'
 import { environment } from '../../environments/environment'
+import { StorageService } from './storage.service'
+import { differenceInHours } from 'date-fns'
+import { csfStorageKeys } from '../modules/css-filters/data/csf-storage-keys'
+import { appConfig } from '../app-config'
+import { values } from 'lodash-es'
 
 @Injectable({ providedIn: 'root' })
 export class AppInitService {
 
-  constructor(private themeService: ThemeService) {}
+  constructor(private themeService: ThemeService, private storageService: StorageService) {}
 
   async init(): Promise<any> {
     console.info(`environment=${environment.name}`)
+    this.cacheBust()
     this.initTheme()
     this.initLod()
     return true
+  }
+
+  private cacheBust() {
+    const lastSeen: Date = this.storageService.getItem('last-seen')
+    let bust = false
+
+    if (lastSeen) {
+      const diff: number = differenceInHours(new Date(), lastSeen)
+      if (diff > 2) bust = true
+    } else {
+      bust = true
+    }
+
+    if (bust) {
+      console.info('busting your cache')
+      const prefix: string = appConfig.theme.prefix
+      const myKeys: string[] = [prefix, `${prefix}-lod`, ...values(csfStorageKeys)]
+      myKeys.forEach((key: string) => this.storageService.removeItem(key))
+    }
   }
 
   private initTheme() {

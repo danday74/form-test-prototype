@@ -3,6 +3,7 @@ import { TTheme } from './types/t-theme'
 import { appConfig } from './app-config'
 import { ThemeService } from './services/theme.service'
 import { TLod } from './types/t-lod'
+import { StorageService } from './services/storage.service'
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,11 @@ export class AppComponent {
   theme: TTheme = this.themeService.getTheme()
   lod: TLod = this.themeService.getLod()
 
-  constructor(private themeService: ThemeService) {}
+  constructor(private themeService: ThemeService, private storageService: StorageService) {}
+
+  onBeforeUnload() {
+    this.storageService.setItem('last-seen', new Date())
+  }
 
   changeTheme(theme: TTheme) {
     this.themeService.activateTheme(theme).then((theme: TTheme) => {

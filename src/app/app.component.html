@@ -38,7 +38,7 @@
   </header>
 
   <main>
-    <router-outlet></router-outlet>
+    <router-outlet (window:beforeunload)="onBeforeUnload()"></router-outlet>
   </main>
 
   <footer>&nbsp;</footer>
