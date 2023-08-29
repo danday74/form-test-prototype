@@ -50,7 +50,7 @@ export class AppInitService {
           if (removeLink) {
             document.head.removeChild(removeLink)
           } else {
-            // <link rel="stylesheet" type="text/css" href="/assets/themes/init-theme.css" data-remove>
+            // <link rel="stylesheet" type="text/css" href="assets/themes/init-theme.css" data-remove>
             throw Error('head > link[data-remove] avoids page jump on initial page load but it no longer exists')
           }
         }, 200)
