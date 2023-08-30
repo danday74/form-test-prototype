@@ -1,4 +1,4 @@
-@mixin inputBackground($color: #eee) {
+@mixin inputBackground($color: #eee, $includeCheckboxes: false) {
   .form-control, .form-select {
     background-color: $color;
   }
@@ -10,5 +10,11 @@
     border-right: 2px solid darken($color, $darkenPercent);
     border-bottom: 10px solid darken($color, $darkenPercent);
     border-left: 2px solid darken($color, $darkenPercent);
+  }
+
+  @if $includeCheckboxes {
+    .form-check-input:not(:checked) {
+      background-color: $color;
+    }
   }
 }

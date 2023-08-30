@@ -21,7 +21,7 @@ html.x3ui-modern {
 
   &[data-bs-theme='light'] {
     form.x3ui-form {
-      @include inputBackground($lightBgBlue);
+      @include inputBackground($lightBgBlue, true);
     }
   }
 }
