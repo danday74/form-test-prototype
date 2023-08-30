@@ -1,5 +1,5 @@
 @mixin inputNoBoxShadow {
-  .form-control, .form-select {
+  .form-control, .form-select, .form-check-input {
     box-shadow: none;
   }
 }
