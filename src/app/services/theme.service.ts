@@ -5,6 +5,9 @@ import { formatMe } from '../utils/string-utils'
 import { TLod } from '../types/t-lod'
 import { appConfig } from '../app-config'
 import { StorageService } from './storage.service'
+import { deferred } from '../utils/deferred'
+import { IDeferred } from '../interfaces/i-deferred'
+import { insertAfter } from '../utils/dom-utils'
 
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
@@ -51,18 +54,34 @@ export class ThemeService {
     if (lod !== bsTheme) html.dataset.bsTheme = lod
   }
 
-  private loadTheme(theme: TTheme, href: string) {
+  async deactivateOldTheme(timeout = 200): Promise<boolean> {
+    const defer: IDeferred<boolean> = deferred()
 
-    const oldLink: HTMLLinkElement = document.querySelector('head > link[data-theme]')
+    setTimeout(() => {
+      const oldLink: HTMLLinkElement = document.querySelector('head > link[data-theme][data-remove]')
+      if (oldLink) {
+        document.head.removeChild(oldLink)
+        defer.resolve(true)
+      } else {
+        defer.reject('unable to find a link in head to remove')
+      }
+    }, timeout)
+
+    return defer.promise
+  }
+
+  private loadTheme(theme: TTheme, href: string) {
+    const oldLink: HTMLLinkElement = document.querySelector('head > link[data-theme]:not([data-remove])')
 
     const newLink: HTMLLinkElement = document.createElement('link')
     newLink.rel = 'stylesheet'
     newLink.type = 'text/css'
-    newLink.dataset.theme = theme
     newLink.href = href
+    newLink.dataset.theme = theme
 
     if (oldLink) {
-      if (oldLink.dataset.theme !== newLink.dataset.theme) document.head.replaceChild(newLink, oldLink)
+      oldLink.dataset.remove = ''
+      insertAfter(oldLink, newLink)
     } else {
       document.head.appendChild(newLink)
     }
