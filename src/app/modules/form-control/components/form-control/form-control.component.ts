@@ -1,14 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-  ContentChild,
-  ElementRef,
-  Input,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-  ViewChild
-} from '@angular/core'
+import { AfterViewInit, Component, ContentChild, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core'
 import { NgModel } from '@angular/forms'
 import { v4 } from 'uuid'
 import { IFormErrors } from '../../../form-errors/interfaces/i-form-errors'

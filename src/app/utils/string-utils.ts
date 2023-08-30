@@ -5,6 +5,7 @@ export const isStringAnInteger = (str: string): boolean => {
 }
 
 export const fixUnits = (str: string): string => {
+  if (str == null) return null
   str = str.trim()
   return (isStringAnInteger(str)) ? `${str}px` : str
 }
