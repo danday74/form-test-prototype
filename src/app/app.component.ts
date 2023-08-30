@@ -21,10 +21,21 @@ export class AppComponent {
     this.storageService.setItem('last-seen', new Date())
   }
 
-  changeTheme(theme: TTheme) {
-    this.themeService.activateTheme(theme).then((theme: TTheme) => {
-      if (theme) this.theme = theme
-    })
+  async changeTheme(t: TTheme): Promise<boolean> {
+    try {
+      const theme: TTheme = await this.themeService.activateTheme(t)
+      if (theme == null) throw Error('failed to activate theme')
+      this.theme = theme
+
+      const success: boolean = await this.themeService.deactivateOldTheme()
+      if (!success) throw Error('failed to deactivate old theme')
+
+      return true
+    } catch (err: any) {
+      const msg: string = err.message || err
+      console.error(msg)
+      return false
+    }
   }
 
   toggleLod() {
