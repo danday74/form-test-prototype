@@ -4,7 +4,7 @@ import { TCssFilter } from '../../types/t-css-filter'
 import { defaultCssFilters } from '../../data/default-css-filters'
 import { cloneDeep, findKey, keys, merge, reduce, uniq } from 'lodash-es'
 import { StorageService } from '../../../../services/storage.service'
-import { fixUnits } from 'src/app/utils/string-utils'
+import { adjustSizeForMin, fixUnits } from 'src/app/utils/string-utils'
 import { csfStorageKeys } from '../../data/csf-storage-keys'
 import { ICssFilter } from '../../interfaces/i-css-filter'
 import { getCsfOrder } from '../../utils/get-csf-order'
@@ -158,7 +158,8 @@ export class CssFiltersComponent implements OnInit, AfterViewInit, OnChanges, On
   }
 
   private fixUnits() {
-    this.width = fixUnits(this.width)
+    const width: string = fixUnits(this.width)
+    this.width = adjustSizeForMin(width, 185)
   }
 
   private setFilters() {
