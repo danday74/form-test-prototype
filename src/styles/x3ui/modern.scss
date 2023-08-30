@@ -10,7 +10,7 @@
 
 html.x3ui-modern {
   form.x3ui-form {
-    @include buttonPrimaryBackground;
+    @include buttonPrimaryBackground(green);
     @include buttonSquareCorners;
     @include checkboxColors;
     @include inputBorderStatus;
