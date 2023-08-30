@@ -14,12 +14,12 @@ export class AppInitService {
 
   constructor(private themeService: ThemeService, private storageService: StorageService) {}
 
-  async init(): Promise<any> {
+  async init(): Promise<boolean> {
     console.info(`environment=${environment.name}`)
     this.cacheBust()
-    this.initTheme()
+    const result: boolean = await this.initTheme()
     this.initLod()
-    return true
+    return result
   }
 
   private cacheBust() {
@@ -41,21 +41,22 @@ export class AppInitService {
     }
   }
 
-  private initTheme() {
-    const theme: TTheme = this.themeService.getTheme()
-    this.themeService.activateTheme(theme).then((theme: TTheme) => {
-      if (theme != null) {
-        setTimeout(() => {
-          const removeLink: HTMLLinkElement = document.querySelector('head > link[data-remove]')
-          if (removeLink) {
-            document.head.removeChild(removeLink)
-          } else {
-            // <link rel="stylesheet" type="text/css" href="assets/themes/init-theme.css" data-remove>
-            throw Error('head > link[data-remove] avoids page jump on initial page load but it no longer exists')
-          }
-        }, 200)
-      }
-    })
+  private async initTheme(): Promise<boolean> {
+    try {
+      const t: TTheme = this.themeService.getTheme()
+
+      const theme: TTheme = await this.themeService.activateTheme(t)
+      if (theme == null) throw Error('failed to activate theme')
+
+      const success: boolean = await this.themeService.deactivateOldTheme(100)
+      if (!success) throw Error('failed to deactivate old theme')
+
+      return true
+    } catch (err: any) {
+      const msg: string = err.message || err
+      console.error(`on app init, ${msg}`)
+      return false
+    }
   }
 
   private initLod() {
