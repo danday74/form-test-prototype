@@ -7,7 +7,7 @@ import { AppInitService } from './services/app-init.service'
 import { HttpClientModule } from '@angular/common/http'
 import { CssFiltersModule } from './modules/css-filters/css-filters.module'
 
-const appInit = (appInitService: AppInitService) => (): Promise<any> => appInitService.init()
+const appInit = (appInitService: AppInitService) => (): Promise<boolean> => appInitService.init()
 
 @NgModule({
   declarations: [
