@@ -15,6 +15,7 @@
   @if $includeCheckboxes {
     .form-check-input:not(:checked) {
       background-color: $color;
+      // border-color: $borderColor;
     }
   }
 }
