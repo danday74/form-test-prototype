@@ -42,6 +42,7 @@
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
       color: var(--csf-text-color);
+      width: 46px; // prevents jump on page load
 
       & > span {
         font-size: 22px;
