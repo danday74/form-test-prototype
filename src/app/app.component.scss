@@ -52,6 +52,7 @@ header {
         align-items: center;
         border: none;
         margin-right: 20px;
+        width: 64px; // prevents jump on page load
 
         &:hover {
           background-color: #222;
