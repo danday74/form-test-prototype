@@ -4,8 +4,8 @@ import { IDeferred } from '../interfaces/i-deferred'
 // avoids need to wrap code in promise constructor
 
 export const deferred = <T>(): IDeferred<T> => {
-  let resolve: () => void
-  let reject: () => void
+  let resolve: (value?: T | PromiseLike<T>) => void
+  let reject: (reason?: any) => void
   const promise: Promise<T> = new Promise(function () {
     resolve = arguments[0]
     reject = arguments[1]
