@@ -22,6 +22,9 @@ export class AppComponent {
   }
 
   async changeTheme(t: TTheme): Promise<boolean> {
+
+    if (t === this.theme) return true
+
     try {
       const theme: TTheme = await this.themeService.activateTheme(t)
       if (theme == null) throw Error('failed to activate theme')
