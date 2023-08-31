@@ -1,3 +1,4 @@
+@import 'mixins/input-background-dark';
 @import 'mixins/input-background-light';
 @import 'mixins/input-border-status';
 @import 'mixins/label-required';
@@ -6,6 +7,12 @@ html.x3ui-bootstrap {
   form.x3ui-form {
     @include inputBorderStatus;
     @include labelRequired;
+  }
+
+  &[data-bs-theme='dark'] {
+    form.x3ui-form {
+      @include inputBackgroundDark;
+    }
   }
 
   &[data-bs-theme='light'] {

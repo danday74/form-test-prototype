@@ -2,6 +2,7 @@
 @import 'mixins/button-primary-background';
 @import 'mixins/button-square-corners';
 @import 'mixins/checkbox-colors';
+@import 'mixins/input-background-dark';
 @import 'mixins/input-background-light';
 @import 'mixins/input-border-status';
 @import 'mixins/input-square-corners';
@@ -17,6 +18,12 @@ html.x3ui-modern {
     @include inputSquareCorners;
     @include labelFocus;
     @include labelRequired;
+  }
+
+  &[data-bs-theme='dark'] {
+    form.x3ui-form {
+      @include inputBackgroundDark;
+    }
   }
 
   &[data-bs-theme='light'] {

@@ -1,0 +1,12 @@
+@mixin inputBackgroundDark {
+
+  $color: #212529;
+  $darkenPercent: 1.5%;
+
+  textarea.form-control {
+    border-top: 10px solid darken($color, $darkenPercent);
+    border-right: 2px solid darken($color, $darkenPercent);
+    border-bottom: 10px solid darken($color, $darkenPercent);
+    border-left: 2px solid darken($color, $darkenPercent);
+  }
+}
