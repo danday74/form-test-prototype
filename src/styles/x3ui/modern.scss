@@ -13,7 +13,6 @@ html.x3ui-modern {
   form.x3ui-form {
     @include buttonPrimaryBackground(green);
     @include buttonSquareCorners;
-    @include checkboxColors;
     @include inputBorderStatus;
     @include inputSquareCorners;
     @include labelFocus;
@@ -29,6 +28,7 @@ html.x3ui-modern {
   &[data-bs-theme='light'] {
     form.x3ui-form {
       @include inputBackgroundLight($lightBgBlue, true);
+      @include checkboxColors;
     }
   }
 }
