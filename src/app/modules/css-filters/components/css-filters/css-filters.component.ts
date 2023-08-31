@@ -110,7 +110,7 @@ export class CssFiltersComponent implements OnInit, AfterViewInit, OnChanges, On
     this.applyFilters()
   }
 
-  @throttleDecorator(50, { leading: true, trailing: true })
+  @throttleDecorator(50)
   private applyFilters() {
 
     const order: TCssFilter[] = getCsfOrder(this.filterz)
