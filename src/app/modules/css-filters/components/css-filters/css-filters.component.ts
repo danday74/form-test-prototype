@@ -73,6 +73,11 @@ export class CssFiltersComponent implements OnInit, AfterViewInit, OnChanges, On
     this.showDialog = !this.showDialog
   }
 
+  changeFilter(filter: TCssFilter) {
+    this.closeDialog()
+    this.doChangeFilter(filter)
+  }
+
   updateTarget(targetValue: boolean) {
     this.targetValue = targetValue
     this.applyFilters()
@@ -85,11 +90,6 @@ export class CssFiltersComponent implements OnInit, AfterViewInit, OnChanges, On
       return acc
     }, this.filterz)
     this.applyFilters()
-  }
-
-  changeFilter(filter: TCssFilter) {
-    this.closeDialog()
-    this.doChangeFilter(filter)
   }
 
   sliderUpdateFilterValue(value: number) {
