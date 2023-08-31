@@ -1,8 +1,8 @@
 @import 'src/styles/mixins/fade-in';
 
 .fade-in-body {
-  // opacity: 0;
-  // @include fadeIn(400, 400);
+   opacity: 0;
+   @include fadeIn(400, 200);
 }
 
 .fade-in-slow {
