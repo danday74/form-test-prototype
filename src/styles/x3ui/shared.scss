@@ -37,6 +37,10 @@ form.x3ui-form {
     padding-top: 4px;
     padding-bottom: 8px;
     min-height: 80px;
+    border-top: 10px solid;
+    border-right: 2px solid;
+    border-bottom: 10px solid;
+    border-left: 2px solid;
   }
 
   .form-floating > .form-control:focus ~ label::after,
