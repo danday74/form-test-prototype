@@ -2,4 +2,8 @@
   .form-label:has(+.form-control:focus), .form-label:has(+.form-select:focus), .form-label.focus {
     font-weight: bold;
   }
+
+  .form-floating > input.form-control:focus + label {
+    font-weight: bold;
+  }
 }
