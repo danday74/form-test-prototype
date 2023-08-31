@@ -1,4 +1,4 @@
-@import 'mixins/input-background';
+@import 'mixins/input-background-light';
 @import 'mixins/input-border-status';
 @import 'mixins/label-required';
 
@@ -10,7 +10,7 @@ html.x3ui-bootstrap {
 
   &[data-bs-theme='light'] {
     form.x3ui-form {
-      @include inputBackground;
+      @include inputBackgroundLight;
     }
   }
 }

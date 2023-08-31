@@ -1,5 +1,5 @@
 @import 'mixins/button-square-corners';
-@import 'mixins/input-background';
+@import 'mixins/input-background-light';
 @import 'mixins/input-no-box-shadow';
 @import 'mixins/input-square-corners';
 
@@ -12,7 +12,7 @@ html.x3ui-current {
 
   &[data-bs-theme='light'] {
     form.x3ui-form {
-      @include inputBackground(#fff);
+      @include inputBackgroundLight(#fff);
     }
   }
 }

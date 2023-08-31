@@ -1,4 +1,4 @@
-@mixin inputBackground($color: #eee, $includeCheckboxes: false) {
+@mixin inputBackgroundLight($color: #eee, $includeCheckboxes: false) {
   .form-control, .form-select {
     background-color: $color;
   }

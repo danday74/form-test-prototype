@@ -2,7 +2,7 @@
 @import 'mixins/button-primary-background';
 @import 'mixins/button-square-corners';
 @import 'mixins/checkbox-colors';
-@import 'mixins/input-background';
+@import 'mixins/input-background-light';
 @import 'mixins/input-border-status';
 @import 'mixins/input-square-corners';
 @import 'mixins/label-focus';
@@ -21,7 +21,7 @@ html.x3ui-modern {
 
   &[data-bs-theme='light'] {
     form.x3ui-form {
-      @include inputBackground($lightBgBlue, true);
+      @include inputBackgroundLight($lightBgBlue, true);
     }
   }
 }
